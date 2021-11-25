@@ -1,20 +1,20 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2021-11-25 09:39:17
+ * @LastEditTime: 2021-11-25 09:46:37
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-puls-temp\README.md
  * QQ:504875043@qq.com
 -->
 # Vue 3 + Vite
-
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-## Recommended IDE Setup
-
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
-# 安装的相关插件
+```shell
+git clone https://github.com/findnr/vue-element-puls-temp.git
+cd vue-element-plus-temp
+npm install
+npm run dev
+```
+# 此项目创建的流程如下
 ## 安装vue-router@4
 ```shell
 npm install vue-router@4 --save
