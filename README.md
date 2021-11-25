@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2021-11-25 10:04:01
+ * @LastEditTime: 2021-11-25 10:17:12
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
@@ -51,5 +51,11 @@ app.use(ElementPlus)
 
 app.mount('#app')
 ```
+## 创建文件
+在src目录下
+api (接口开发文件)
+config (配制文件)
+route (路由相关文件)
+vuex (vuex相关文件)
 
 
