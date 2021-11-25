@@ -9,7 +9,7 @@
 -->
 # Vue 3 + Vite
 ```shell
-git clone https://github.com/findnr/vue-element-puls-temp.git
+git clone https://github.com/findnr/vue-element-plus-temp.git
 cd vue-element-plus-temp
 npm install
 npm run dev
