@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2021-11-25 10:17:12
+ * @LastEditTime: 2021-11-26 10:52:36
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
@@ -57,5 +57,37 @@ api (接口开发文件)
 config (配制文件)
 route (路由相关文件)
 vuex (vuex相关文件)
+## 打包设置
+#### 文件名按时间戳打包css js index文件，开发模式为(/)，线上模式(./) 修改vite.config.js
+```javascript
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+const timestamp = new Date().getTime();
+// https://vitejs.dev/config/
+export default defineConfig({
+    //开发模式用('./')线上用(/)
+  base: process.env.NODE_ENV == 'development' ? './' : '/',
+  plugins: [vue()],
+  //打包文件按时间戳命名
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: `assets/[name].${timestamp}.js`,
+        chunkFileNames: `assets/[name].${timestamp}.js`,
+        assetFileNames: `assets/[name].${timestamp}.[ext]`
+      }
+    }
+  }
+})
+```
+#### 配制端口和启动时间打开浏览器IP地址
+```javascript
+//代码放到default defineConfig({})里面
+server: {
+    port: 3000,
+    open: true,
+    host: '0.0.0.0'
+  },
+```
 
 
