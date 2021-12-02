@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:52:58
- * @LastEditTime: 2021-12-02 09:58:23
+ * @LastEditTime: 2021-12-02 10:05:37
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\App.vue
@@ -11,9 +11,9 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import HelloWorld from './components/HelloWorld.vue'
-import store  from "./store/"
+// import store  from "./store/"
 
-console.log(store.state.user.title)
+// console.log(store.state.user.title)
 
 </script>
 
