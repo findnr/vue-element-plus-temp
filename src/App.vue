@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:52:58
- * @LastEditTime: 2021-12-01 15:51:54
+ * @LastEditTime: 2021-12-02 09:58:23
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\App.vue
@@ -13,13 +13,12 @@
 import HelloWorld from './components/HelloWorld.vue'
 import store  from "./store/"
 
-console.log(store.state.user.accessToken)
+console.log(store.state.user.title)
 
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <router-view></router-view>
 </template>
 
 <style>
