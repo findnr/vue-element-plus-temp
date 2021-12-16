@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 11:00:23
- * @LastEditTime: 2021-12-02 15:09:13
+ * @LastEditTime: 2021-12-16 15:36:24
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\api\example.js
@@ -25,7 +25,7 @@ export function img(data) {
     return http.post(url + 'upload/one', param, file);
 }
 //上传多文件
-export function file(data) {
+export function uploadFile(data) {
     let param = new FormData();
     for (const key in data.file) {
         param.append("file[]", data.file[key]['raw']);

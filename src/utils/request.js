@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-12-01 14:56:33
- * @LastEditTime: 2021-12-01 15:11:11
+ * @LastEditTime: 2021-12-16 15:47:21
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\utils\request.js
@@ -9,28 +9,45 @@
  */
 import axios from "axios"
 import { getToken } from "./token"
-
+import store from '../store'
+import router from '../router'
+import { ElMessage, ElLoading } from 'element-plus'
 
 const http = axios.create({
+    headers: {
+        'Content-Type': 'application/json',
+    },
     //设置请求时间过期
     timeout: 5000
 });
 
+//加载动画
+let loading = null
+
 http.interceptors.request.use(
     config => {
-        if (getToken()) {  // 判断是否存在token，如果存在的话，则每个http header都加上token
-            config.headers.Authorization = token;
-        }
+        let token = getToken();
+        if (token) config.headers.Authorization = token;// 判断是否存在token，如果存在的话，则每个http header都加上token
+        //加载动画
+        loading = ElLoading.service({
+            lock: true,
+            text: '加载中...',
+        })
         return config;
     },
     error => {
-        console.log(error);
+        //关闭动画
+        loading.close()
+
         return Promise.reject();
     }
 );
 
 http.interceptors.response.use(
     response => {
+        //关闭动画
+        loading.close()
+
         if (response.status === 200) {
             return response.data;
         } else {
@@ -38,7 +55,9 @@ http.interceptors.response.use(
         }
     },
     error => {
-        console.log(error);
+        //关闭动画
+        loading.close()
+
         return Promise.reject();
     }
 );
