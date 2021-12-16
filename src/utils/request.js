@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-12-01 14:56:33
- * @LastEditTime: 2021-12-16 15:47:21
+ * @LastEditTime: 2021-12-16 15:53:47
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\utils\request.js
@@ -18,7 +18,7 @@ const http = axios.create({
         'Content-Type': 'application/json',
     },
     //设置请求时间过期
-    timeout: 5000
+    timeout: 10000
 });
 
 //加载动画
@@ -45,8 +45,15 @@ http.interceptors.request.use(
 
 http.interceptors.response.use(
     response => {
+
         //关闭动画
         loading.close()
+
+        const { data } = response
+        ElMessage.success({
+            message: data.msg,
+            type: 'success',
+        })
 
         if (response.status === 200) {
             return response.data;
