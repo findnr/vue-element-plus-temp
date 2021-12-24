@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 09:08:06
- * @LastEditTime: 2021-12-01 16:57:14
+ * @LastEditTime: 2021-12-17 10:12:55
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\main.js
@@ -17,5 +17,8 @@ app.use(ElementPlus)
 
 import router from "./router"
 app.use(router)
+
+import store from './store'
+app.use(store)
 
 app.mount('#app')
