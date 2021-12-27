@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2021-12-02 10:04:48
+ * @LastEditTime: 2021-12-27 16:49:15
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
@@ -36,6 +36,10 @@ npm install qs --save
 ## 安装sass (此扩展是为了支持 scss)
 ```shell
 npm install --save-dev sass
+```
+##安装path (此扩展是做@作为src/这个目录)
+```shell
+npm install --save-dev path
 ```
 # 全局引入element-plus
 src/main.js文件中的内容删除增加以下内容
@@ -88,10 +92,17 @@ export default defineConfig({
 ```javascript
 //代码放到default defineConfig({})里面
 server: {
-    port: 3000,
-    open: true,
-    host: '0.0.0.0'
-  },
+  port: 3000,
+  open: true,
+  host: '0.0.0.0'
+},
+```
+#### 配制页面中引入使用'@'
+```javascript
+//代码放到default defineConfig({})里面
+resolve: {
+    alias: { '@': path.resolve(__dirname, 'src') },
+},
 ```
 
 
