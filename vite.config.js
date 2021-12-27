@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 09:52:58
- * @LastEditTime: 2021-11-26 10:43:32
+ * @LastEditTime: 2021-12-27 14:49:25
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\vite.config.js
@@ -9,6 +9,8 @@
  */
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import path from "path"
+
 const timestamp = new Date().getTime();
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -27,5 +29,8 @@ export default defineConfig({
         assetFileNames: `assets/[name].${timestamp}.[ext]`
       }
     }
+  },
+  resolve: {
+    alias: { '@': path.resolve(__dirname, 'src') },
   }
 })

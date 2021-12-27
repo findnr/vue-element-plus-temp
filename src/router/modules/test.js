@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-12-01 16:32:35
- * @LastEditTime: 2021-12-01 16:57:59
+ * @LastEditTime: 2021-12-27 15:41:59
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\router\modules\test.js
@@ -12,12 +12,12 @@ const test = [
         path: "/test",
         name: "test",
         redirect: '/test/init',
-        component: () => import("../../views/test/Init.vue"),
+        component: () => import("@/views/test/Init.vue"),
         children: [
             {
                 path: 'init',
                 name: 'test-init',
-                component: () => import("../../views/test/Init.vue"),
+                component: () => import("@/views/test/Init.vue"),
             }
         ]
     }
