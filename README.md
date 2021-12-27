@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2021-12-27 16:49:15
+ * @LastEditTime: 2021-12-27 16:53:41
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
@@ -37,7 +37,7 @@ npm install qs --save
 ```shell
 npm install --save-dev sass
 ```
-##安装path (此扩展是做@作为src/这个目录)
+## 安装path (此扩展是做@作为src/这个目录)
 ```shell
 npm install --save-dev path
 ```
