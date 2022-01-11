@@ -1,16 +1,15 @@
 <!--
  * @Author: 程英明
- * @Date: 2021-12-01 16:37:21
- * @LastEditTime: 2022-01-11 13:39:23
+ * @Date: 2021-12-28 11:24:27
+ * @LastEditTime: 2022-01-11 11:18:15
  * @LastEditors: 程英明
  * @Description: 
- * @FilePath: \vue-element-plus-temp\src\views\index\Index.vue
+ * @FilePath: \vue-element-plus-temp\src\views\ttt.vue
  * QQ:504875043@qq.com
 -->
 <template>
   <div class='index'>
-      这是首页页面在
-      <router-view></router-view>
+  fdafsdsafd
   </div>
 </template>
 
