@@ -1,14 +1,14 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 11:00:23
- * @LastEditTime: 2021-12-16 15:36:24
+ * @LastEditTime: 2022-01-14 14:12:20
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\api\example.js
  * QQ:504875043@qq.com
  */
 
-import http from "../utils/request"
+import http from "../utils/axios"
 import config from "../config/index";
 import qs from "qs";
 

@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 11:02:05
- * @LastEditTime: 2022-01-11 11:27:12
+ * @LastEditTime: 2022-01-14 16:52:24
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\router\index.js
@@ -20,7 +20,7 @@ const routes = [
     },
     ...layouts
 ]
-console.log(routes)
+
 const router = createRouter({
     history: process.env.NODE_ENV == 'development' ? createWebHistory() : createWebHashHistory(),
     routes: routes

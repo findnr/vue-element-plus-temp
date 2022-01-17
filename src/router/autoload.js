@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-12-28 10:51:02
- * @LastEditTime: 2022-01-11 15:11:58
+ * @LastEditTime: 2022-01-17 15:21:52
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\router\autoload.js
@@ -9,6 +9,7 @@
  */
 
 const views = import.meta.globEager('../views/**/*.vue');
+console.log(views)
 const routes = [];
 function getRouter() {
     Object.entries(views).forEach(([file, module]) => {
@@ -34,7 +35,6 @@ function getRouter() {
                     route.name = children_name.join('-')
                     route.path = end_path
                     route.component = module.default;
-                    console.log(module.default)
                     tmp_routes.push(route);
                     tmp_routes = routes
                 } else {
@@ -57,6 +57,7 @@ function getRouter() {
                             route.name = children_name.join('-')
                             route.children = []
                             route.component = module.default;
+                            route.redirect = '/'
                             tmp_routes.push(route);
                             is_num = tmp_routes.length - 1
                         }
