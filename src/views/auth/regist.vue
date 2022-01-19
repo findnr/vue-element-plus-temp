@@ -1,15 +1,15 @@
 <!--
  * @Author: 程英明
- * @Date: 2021-12-28 11:24:27
- * @LastEditTime: 2022-01-11 11:18:15
+ * @Date: 2022-01-18 14:05:01
+ * @LastEditTime: 2022-01-18 14:09:14
  * @LastEditors: 程英明
  * @Description: 
- * @FilePath: \vue-element-plus-temp\src\views\ttt.vue
+ * @FilePath: \vue-element-plus-temp\src\views\auth\regist.vue
  * QQ:504875043@qq.com
 -->
 <template>
   <div class='index'>
-  fdafsdsafd
+这是注册页面
   </div>
 </template>
 

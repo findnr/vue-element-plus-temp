@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2021-12-27 16:53:41
+ * @LastEditTime: 2022-01-18 09:45:36
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
@@ -103,6 +103,14 @@ server: {
 resolve: {
     alias: { '@': path.resolve(__dirname, 'src') },
 },
+```
+#### tailwindcss安装及配制（https://tailwindcss.com/docs/guides/vite）
+```
+//安装
+npm install -D tailwindcss postcss autoprefixer
+//生成配制文件
+npx tailwindcss init -p
+
 ```
 
 

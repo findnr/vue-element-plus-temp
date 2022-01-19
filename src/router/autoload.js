@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-12-28 10:51:02
- * @LastEditTime: 2022-01-17 15:21:52
+ * @LastEditTime: 2022-01-19 09:41:12
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\router\autoload.js
@@ -19,13 +19,17 @@ function getRouter() {
             const path = file_arr[2].split('.')[0];
             route.path = `/${path}`;
             route.name = path;
+            route.children = []
             route.component = module.default;
+            if (module.default.route != undefined) {
+                Object.assign(route, module.default.route)
+            }
             routes.push(route)
-        } else {
+        } else if (file_arr.length > 3) {
             file = file.replace('../views/', '')
             file = file.split('/')
             const len = file.length;
-            const children_name = [];
+            let children_name = [];
             let tmp_routes = routes;
             file.forEach((v, i) => {
                 route = {}
@@ -35,7 +39,11 @@ function getRouter() {
                     route.name = children_name.join('-')
                     route.path = end_path
                     route.component = module.default;
+                    if (module.default.route != undefined) {
+                        Object.assign(route, module.default.route)
+                    }
                     tmp_routes.push(route);
+                    children_name = []
                     tmp_routes = routes
                 } else {
                     children_name.push(v)
@@ -45,7 +53,8 @@ function getRouter() {
                             route.path = `/${v}`
                             route.name = children_name.join('-')
                             route.children = []
-                            route.component = module.default;
+                            const aaa = '../views/' + children_name.join('/') + '/index.vue'
+                            route.component = () => import(aaa);
                             tmp_routes.push(route);
                             is_num = tmp_routes.length - 1
                         }
@@ -56,8 +65,8 @@ function getRouter() {
                             route.path = `${v}`
                             route.name = children_name.join('-')
                             route.children = []
-                            route.component = module.default;
-                            route.redirect = '/'
+                            const aaa = '../views/' + children_name.join('/') + '/index.vue'
+                            route.component = () => import(aaa);
                             tmp_routes.push(route);
                             is_num = tmp_routes.length - 1
                         }
