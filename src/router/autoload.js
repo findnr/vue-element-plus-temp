@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-12-28 10:51:02
- * @LastEditTime: 2022-01-19 09:41:12
+ * @LastEditTime: 2022-02-16 14:51:39
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\router\autoload.js
@@ -9,7 +9,7 @@
  */
 
 const views = import.meta.globEager('../views/**/*.vue');
-console.log(views)
+
 const routes = [];
 function getRouter() {
     Object.entries(views).forEach(([file, module]) => {
