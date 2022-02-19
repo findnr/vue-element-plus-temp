@@ -1,18 +1,18 @@
 /*
  * @Author: 程英明
  * @Date: 2021-12-28 10:51:02
- * @LastEditTime: 2022-02-16 14:51:39
- * @LastEditors: 程英明
+ * @LastEditTime: 2022-02-19 13:01:26
+ * @LastEditors: Please set LastEditors
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\router\autoload.js
  * QQ:504875043@qq.com
  */
 
 const views = import.meta.globEager('../views/**/*.vue');
-
 const routes = [];
 function getRouter() {
-    Object.entries(views).forEach(([file, module]) => {
+    const views_obj = Object.entries(views)
+    views_obj.forEach(([file, module]) => {
         let route = {}
         const file_arr = file.split('/');
         if (file_arr.length === 3) {
@@ -54,7 +54,12 @@ function getRouter() {
                             route.name = children_name.join('-')
                             route.children = []
                             const aaa = '../views/' + children_name.join('/') + '/index.vue'
-                            route.component = () => import(aaa);
+                            const com_index = views_obj.findIndex(function(v){
+                                return v[0] == aaa;
+                            })
+                            if(com_index != -1){
+                                route.component =views_obj[com_index][1].default;
+                            }
                             tmp_routes.push(route);
                             is_num = tmp_routes.length - 1
                         }
@@ -66,7 +71,12 @@ function getRouter() {
                             route.name = children_name.join('-')
                             route.children = []
                             const aaa = '../views/' + children_name.join('/') + '/index.vue'
-                            route.component = () => import(aaa);
+                            const com_index = views_obj.findIndex(function(v){
+                                return v[0] == aaa;
+                            })
+                            if(com_index != -1){
+                                route.component =views_obj[com_index][1].default;
+                            }
                             tmp_routes.push(route);
                             is_num = tmp_routes.length - 1
                         }
@@ -80,5 +90,4 @@ function getRouter() {
     })
     return routes;
 }
-
 export default getRouter();

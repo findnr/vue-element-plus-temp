@@ -1,8 +1,8 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 11:02:05
- * @LastEditTime: 2022-02-16 14:51:46
- * @LastEditors: 程英明
+ * @LastEditTime: 2022-02-19 12:55:36
+ * @LastEditors: Please set LastEditors
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\router\index.js
  * QQ:504875043@qq.com
@@ -15,7 +15,7 @@ import { setupGuard } from "./guard"
 const routes = [
     {
         path: '/',
-        redirect: '/index/home/index',
+        redirect: '/index/home/test2',
     },
     ...layouts
 ]
