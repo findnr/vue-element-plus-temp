@@ -1,14 +1,14 @@
 <!--
  * @Author: 程英明
- * @Date: 2022-02-25 09:02:21
- * @LastEditTime: 2022-02-25 09:02:41
+ * @Date: 2022-02-25 13:34:25
+ * @LastEditTime: 2022-02-25 13:34:40
  * @LastEditors: 程英明
  * @Description: 
- * @FilePath: \vue-element-plus-temp\src\components\test-test.vue
+ * @FilePath: \vue-element-plus-temp\src\views\admin\home.vue
  * QQ:504875043@qq.com
 -->
 <template>
-  <div class="index">test-test多么多么</div>
+  <div class="index">这是一个测试</div>
 </template>
 
 <script setup>

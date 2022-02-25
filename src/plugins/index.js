@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2022-01-14 13:37:47
- * @LastEditTime: 2022-02-24 08:54:59
+ * @LastEditTime: 2022-02-25 16:49:30
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\plugins\index.js
@@ -12,7 +12,6 @@ import { setupElementPlus } from "./elementplus";
 import { registComponents } from "./component";
 
 export default function setupPlugins(app) {
-
     setupElementPlus(app)
     setupTailwindcss()
     registComponents(app)

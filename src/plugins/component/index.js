@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2022-02-24 08:51:02
- * @LastEditTime: 2022-02-25 09:16:08
+ * @LastEditTime: 2022-02-25 10:48:58
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\plugins\component\index.js
@@ -24,7 +24,6 @@ function toHump(str) {
             return char.toUpperCase()
         })
 }
-
 function getComponentName(key) {
     if (!key) {
         return ''

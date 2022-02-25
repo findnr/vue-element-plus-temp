@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 09:52:58
- * @LastEditTime: 2022-02-21 09:03:30
+ * @LastEditTime: 2022-02-25 15:58:31
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\vite.config.js
@@ -39,6 +39,8 @@ export default defineConfig({
     }
   },
   resolve: {
-    alias: { '@': path.resolve(__dirname, 'src') },
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
 })

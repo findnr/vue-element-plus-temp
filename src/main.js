@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 09:08:06
- * @LastEditTime: 2022-01-14 13:47:04
+ * @LastEditTime: 2022-02-25 17:00:16
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\main.js
@@ -11,8 +11,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import setupPlugins from './plugins'
 
-const app = createApp(App)
+import './assets/css/layout.scss'
+import './assets/css/custom.scss'
 
+const app = createApp(App)
 setupPlugins(app)
 
 import router from "./router"
