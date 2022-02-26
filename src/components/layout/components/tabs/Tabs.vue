@@ -127,6 +127,7 @@ export default {
       store.commit("getActiveMenu", obj.props.name);
       setTabs(data.tabs, obj.props.name);
       judgeTabs();
+      console.log(obj.props)
     };
 
     // 关闭tab

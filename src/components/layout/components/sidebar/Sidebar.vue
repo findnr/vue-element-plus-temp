@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { reactive, toRefs, computed, watch, onMounted } from "vue";
+import { reactive, toRefs, computed, watch} from "vue";
 import { useStore } from "vuex";
 
 import { getTabs } from "@/utils/storage";
@@ -37,115 +37,101 @@ export default {
         {
           menuId: "111",
           menuName: "导航一",
-          path: "",
           icon: "document",
-          children: [],
-        },
-        {
-          menuId: "222",
-          menuName: "开发文档",
-          path: "",
-          icon: "share",
           children: [
+            { menuId: "111-1", menuName: "选项1", path: "/admin/home/home", children: [],icon: "document", },
+            { menuId: "111-2", menuName: "选项2", path: "/admin/home/test", children: [],icon: "document", },
             {
-              menuId: "222-1",
-              menuName: "选项1",
+              menuId: "111-3",
+              menuName: "选项3",
               path: "",
+              icon: "document",
               children: [],
-              icon: "share",
             },
             {
-              menuId: "222-2",
-              menuName: "选项2",
+              menuId: "111-4",
+              menuName: "这是选项4哦",
               path: "",
-              children: [],
-              icon: "share",
+              icon: "document",
+              children: [
+                {
+                  menuId: "111-4-1",
+                  menuName: "这是选项4-1哦",
+                  path: "/",
+                  icon: "document",
+                  children: [],
+                },
+                {
+                  menuId: "111-4-2",
+                  menuName: "这是选项4-2哦",
+                  path: "/",
+                  icon: "document",
+                  children: [
+                    {
+                      menuId: "111-4-2-1",
+                      menuName: "这是选项4-2-1哦",
+                      path: "/",
+                      icon: "document",
+                      children: [],
+                    },
+                  ],
+                },
+              ],
             },
           ],
         },
-        //     { menuId: "111-1", menuName: "选项1", path: "", children: [] },
-        //     { menuId: "111-2", menuName: "选项2", path: "", children: [] },
-        //     {
-        //       menuId: "111-3",
-        //       menuName: "选项3",
-        //       path: "",
-        //       children: [],
-        //       icon: "<document />",
-        //     },
-        //     {
-        //       menuId: "111-4",
-        //       menuName: "这是选项4哦",
-        //       path: "",
-        //       children: [
-        //         {
-        //           menuId: "111-4-1",
-        //           menuName: "这是选项4-1哦",
-        //           path: "/",
-        //           children: [],
-        //         },
-        //         {
-        //           menuId: "111-4-2",
-        //           menuName: "这是选项4-2哦",
-        //           path: "/",
-        //           children: [
-        //             {
-        //               menuId: "111-4-2-1",
-        //               menuName: "这是选项4-2-1哦",
-        //               path: "/",
-        //               children: [],
-        //             },
-        //           ],
-        //         },
-        //       ],
-        //     },
-        //   ],
-        // },
-        // {
-        //   menuId: "222",
-        //   menuName: "导航二",
-        //   path: "",
-        //   children: [
-        //     { menuId: "222-1", menuName: "导航二1", path: "/", children: [] },
-        //     { menuId: "222-2", menuName: "导航二2", path: "/", children: [] },
-        //     { menuId: "222-3", menuName: "导航二3", path: "/", children: [] },
-        //     {
-        //       menuId: "222-4",
-        //       menuName: "导航二4",
-        //       path: "",
-        //       children: [
-        //         {
-        //           menuId: "222-4-1",
-        //           menuName: "导航二4-1",
-        //           path: "",
-        //           children: [
-        //             {
-        //               menuId: "222-4-1-1",
-        //               menuName: "导航二4-1-1",
-        //               path: "/",
-        //               children: [],
-        //             },
-        //           ],
-        //         },
-        //         {
-        //           menuId: "222-4-2",
-        //           menuName: "导航二4-2",
-        //           path: "/",
-        //           children: [],
-        //         },
-        //       ],
-        //     },
-        //   ],
-        // },
-        // { menuId: "333", menuName: "导航三", path: "/", children: [] },
-        // { menuId: "444", menuName: "导航四", path: "/", children: [] },
-        // {
-        //   menuId: "555",
-        //   menuName: "导航五",
-        //   path: "",
-        //   children: [
-        //     { menuId: "555-1", menuName: "导航五-1", path: "/", children: [] },
-        //   ],
-        // },
+        {
+          menuId: "222",
+          menuName: "导航二",
+          path: "",
+          icon: "document",
+          children: [
+            { menuId: "222-1", menuName: "导航二1", path: "/", children: [],icon: "document",},
+            { menuId: "222-2", menuName: "导航二2", path: "/", children: [] ,icon: "document",},
+            { menuId: "222-3", menuName: "导航二3", path: "/", children: [],icon: "document", },
+            {
+              menuId: "222-4",
+              menuName: "导航二4",
+              path: "",
+              icon: "document",
+              children: [
+                {
+                  menuId: "222-4-1",
+                  menuName: "导航二4-1",
+                  path: "",
+                  icon: "document",
+                  children: [
+                    {
+                      menuId: "222-4-1-1",
+                      menuName: "导航二4-1-1",
+                      path: "/",
+                      icon: "document",
+                      children: [],
+                    },
+                  ],
+                },
+                {
+                  menuId: "222-4-2",
+                  menuName: "导航二4-2",
+                  path: "/",
+                  icon: "document",
+                  children: [],
+                },
+              ],
+            },
+          ],
+        },
+        { menuId: "333", menuName: "导航三", path: "/", children: [],icon: "document", },
+        { menuId: "444", menuName: "导航四", path: "/", children: [],icon: "document", },
+        {
+          menuId: "555",
+          menuName: "导航五",
+          path: "",
+          icon: "document",
+          children: [
+            { menuId: "555-1", menuName: "导航五-1", path: "/", children: [] ,icon: "document",},
+          ],
+        },
       ],
     });
 

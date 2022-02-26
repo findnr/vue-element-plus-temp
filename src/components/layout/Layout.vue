@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-02-26 14:53:32
+ * @LastEditTime: 2022-02-26 15:19:13
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \vue-element-plus-temp\src\components\layout\Layout.vue
+-->
 <template>
   <el-container v-if="navbarType === '左侧菜单模式'">
     <el-aside :width="sidebarWidth">
@@ -63,42 +71,34 @@
   </el-container>
 </template>
 
-<script>
+<script setup>
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
-export default {
-  setup() {
-    const route = useRoute();
-    const store = useStore();
 
-    // 获取当前路径
-    const currentPath = computed(() => {
-      return route.path;
-    });
+const route = useRoute();
+const store = useStore();
 
-    // 导航栏类型
-    const navbarType = computed(() => {
-      return store.state.navbarType;
-    });
+// 获取当前路径
+const currentPath = computed(() => {
+  return route.path;
+});
 
-    // 是否折叠菜单
-    const isCollapse = computed(() => {
-      return store.state.isCollapse;
-    });
+// 导航栏类型
+const navbarType = computed(() => {
+  return store.state.navbarType;
+});
 
-    // 侧边栏宽度
-    const sidebarWidth = computed(() => {
-      return store.state.isCollapse ? "64px" : "200px";
-    });
-    return {
-      currentPath,
-      navbarType,
-      isCollapse,
-      sidebarWidth,
-    };
-  },
-};
+// 是否折叠菜单
+const isCollapse = computed(() => {
+  return store.state.isCollapse;
+});
+
+// 侧边栏宽度
+const sidebarWidth = computed(() => {
+  return store.state.isCollapse ? "64px" : "200px";
+});
+
 </script>
 
 <style></style>

@@ -1,11 +1,10 @@
 <!--
- * @Author: 张江亮
- * @Date: 2022-02-24 11:49:52
- * @LastEditTime: 2022-02-25 14:11:58
- * @LastEditors: 程英明
- * @Description: 
+ * @Author: your name
+ * @Date: 2022-02-26 14:53:32
+ * @LastEditTime: 2022-02-26 18:03:26
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \vue-element-plus-temp\src\components\layout\components\sidebar\SidebarItem.vue
- * @QQ: 123316216@qq.com
 -->
 <template>
   <el-sub-menu :index="item.menuId" v-if="item.children.length > 0">
@@ -28,23 +27,19 @@
 
 <script setup>
 import { setTabs, getTabs } from "@/utils/storage.js";
-import { ref, defineProps, toRefs } from "vue";
 import { useStore } from "vuex";
-// export default {
-//   props: {
-//     item: Object,
-//     collapse: Boolean
-//   },
+import router from "@/router"
+
 defineProps({
   item: Object,
   collapse: Boolean,
 });
 
-// console.log(Object.entries(props.item.children).length)
+
 const store = useStore();
 // 点击菜单回调
 const handleMenu = (obj) => {
-  const { menuId, menuName } = obj;
+  const { menuId, menuName ,path } = obj;
   let tabs = getTabs();
   let flag = true;
   tabs.forEach((item) => {
@@ -61,6 +56,7 @@ const handleMenu = (obj) => {
   }
   store.commit("getActiveMenu", menuId);
   setTabs(tabs, menuId);
+  router.push({path:path});
 };
 </script>
 
