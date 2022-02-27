@@ -14,7 +14,6 @@
           :key="index"
           :label="item.name"
         >
-          {{ item.name }}
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -61,7 +60,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { reactive, toRefs, ref, watch } from "vue";
 import {
   ArrowDown,
@@ -72,15 +71,8 @@ import {
 } from "@element-plus/icons-vue";
 import { setTabs, getTabs } from "../../../../utils/storage";
 import { useStore } from "vuex";
-export default {
-  components: {
-    ArrowDown,
-    Close,
-    Download,
-    DocumentRemove,
-    DocumentDelete,
-  },
-  setup() {
+import { useRouter } from "vue-router"
+const router = useRouter();
     const store = useStore();
     const data = reactive({
       left: 0,
@@ -92,42 +84,20 @@ export default {
       disabledOther: true,
       disabledAll: true,
     });
-
+    const {tabs,activeMenu,disabledCurrent,disabledLeft,disabledRight,disabledOther,disabledAll} = toRefs(data)
     data.tabs.forEach((item) => {
       if (item.active) data.activeMenu = item.id;
     });
-
-    const tabsOut = ref(null);
-    const tabsInner = ref(null);
-
-    // tabs 左右滑动
-    const handleScroll = (type) => {
-      const num = 300;
-      const outWidth = tabsOut.value.offsetWidth;
-      const innerWidth = tabsInner.value.offsetWidth;
-      if (innerWidth > outWidth) {
-        if (type === "right") {
-          if (outWidth - data.left < innerWidth - num) {
-            data.left -= num;
-          } else {
-            data.left = outWidth - innerWidth;
-          }
-        } else {
-          if (-data.left > num) {
-            data.left += num;
-          } else {
-            data.left = 0;
-          }
-        }
-      }
-    };
 
     // 点击tab
     const handleTag = (obj) => {
       store.commit("getActiveMenu", obj.props.name);
       setTabs(data.tabs, obj.props.name);
       judgeTabs();
-      console.log(obj.props)
+      const to_index = data.tabs.findIndex((v)=>v.id == obj.props.name)
+      if(to_index != -1){
+        router.push({path:data.tabs[to_index].path});
+      }
     };
 
     // 关闭tab
@@ -223,17 +193,7 @@ export default {
       }
     );
 
-    return {
-      ...toRefs(data),
-      tabsOut,
-      tabsInner,
-      handleScroll,
-      handleTag,
-      handleClose,
-      handleMenuClose,
-    };
-  },
-};
+
 </script>
 
 <style></style>

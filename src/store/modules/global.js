@@ -1,8 +1,8 @@
 /*
  * @Author: 程英明
  * @Date: 2021-12-17 09:56:26
- * @LastEditTime: 2022-02-25 13:28:34
- * @LastEditors: 程英明
+ * @LastEditTime: 2022-02-27 14:25:13
+ * @LastEditors: Please set LastEditors
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\store\modules\global.js
  * QQ:504875043@qq.com
