@@ -1,7 +1,7 @@
 <!--
  * @Author: 张江亮
  * @Date: 2022-02-24 11:49:52
- * @LastEditTime: 2022-02-25 16:27:54
+ * @LastEditTime: 2022-02-28 15:11:58
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\components\layout\components\Logo.vue
@@ -10,9 +10,7 @@
 <template>
   <div class="el-logo">
     <!-- <img src="@/assets/logo.png" alt="" /> -->
-    <span class="title" :class="{ 'is-hide': isHideTitle }"
-      >单位会员管理系统</span
-    >
+    <span class="title" :class="{ 'is-hide': isHideTitle }">单位会员管理系统</span>
   </div>
 </template>
 

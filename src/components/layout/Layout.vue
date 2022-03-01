@@ -1,19 +1,19 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-26 14:53:32
- * @LastEditTime: 2022-02-26 15:19:13
- * @LastEditors: your name
+ * @LastEditTime: 2022-03-01 10:20:18
+ * @LastEditors: 程英明
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \vue-element-plus-temp\src\components\layout\Layout.vue
 -->
 <template>
   <el-container v-if="navbarType === '左侧菜单模式'">
     <el-aside :width="sidebarWidth">
-      <sidebar :showLogo="true"></sidebar>
+      <sidebar :showLogo="true" :menuList="menuList"></sidebar>
     </el-aside>
     <el-container>
       <el-header>
-        <navbar></navbar>
+        <navbar :navbarInfo="navbarInfo"></navbar>
       </el-header>
       <tabs></tabs>
       <el-main>
@@ -21,14 +21,13 @@
       </el-main>
     </el-container>
   </el-container>
-
   <el-container v-else-if="navbarType === '顶部菜单混合模式'">
     <el-header>
-      <navbar :showLogo="true"></navbar>
+      <navbar :showLogo="true" :navbarInfo="navbarInfo"></navbar>
     </el-header>
     <el-container>
       <el-aside :width="sidebarWidth">
-        <sidebar></sidebar>
+        <sidebar :menuList="menuList"></sidebar>
       </el-aside>
       <el-container direction="vertical">
         <tabs></tabs>
@@ -41,9 +40,9 @@
 
   <el-container v-else-if="navbarType === '顶部菜单模式'">
     <el-header>
-      <navbar :showLogo="true">
+      <navbar :showLogo="true" :navbarInfo="navbarInfo">
         <template v-slot:sidebar>
-          <sidebar mode="horizontal"></sidebar>
+          <sidebar mode="horizontal" :menuList="menuList"></sidebar>
         </template>
       </navbar>
     </el-header>
@@ -57,11 +56,11 @@
 
   <el-container v-else>
     <el-aside width="80px">
-      <sidebar :showLogo="true" :collapse="true"></sidebar>
+      <sidebar :showLogo="true" :collapse="true" :menuList="menuList"></sidebar>
     </el-aside>
     <el-container>
       <el-header>
-        <navbar></navbar>
+        <navbar :navbarInfo="navbarInfo"></navbar>
       </el-header>
       <tabs></tabs>
       <el-main>
@@ -72,9 +71,15 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, toRefs } from "vue";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
+
+const props = defineProps({
+  menuList: Array,
+  navbarInfo: Object,
+});
+const { menuList, navbarInfo } = toRefs(props);
 
 const route = useRoute();
 const store = useStore();
@@ -98,7 +103,6 @@ const isCollapse = computed(() => {
 const sidebarWidth = computed(() => {
   return store.state.isCollapse ? "64px" : "200px";
 });
-
 </script>
 
 <style></style>

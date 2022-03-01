@@ -21,7 +21,11 @@
           :disabled="!drawer"
         >
           <div
-            :class="['nav-item', `nav-item-${index}`, { active: navbarType === item }]"
+            :class="[
+              'nav-item',
+              `nav-item-${index}`,
+              { active: navbarType === item },
+            ]"
             @click="changeSetting('navbarType', item)"
           ></div>
         </el-tooltip>
@@ -94,32 +98,32 @@
 </template>
 
 <script>
-import { reactive, toRefs, onMounted } from 'vue'
-import { useStore } from 'vuex'
-import { _data, _changeSetting, _getThemes } from './index.js'
+import { reactive, toRefs, onMounted } from "vue";
+import { useStore } from "vuex";
+import { _data, _changeSetting, _getThemes } from "./index.js";
 export default {
   setup() {
-    const data = reactive(_data)
-    const store = useStore()
+    const data = reactive(_data);
+    const store = useStore();
     onMounted(() => {
-      _getThemes({ data })
-    })
-    const showDraw = () => (data.drawer = true)
+      _getThemes({ data });
+    });
+    const showDraw = () => (data.drawer = true);
     const changeSetting = (type, value) => {
-      _changeSetting({ type, value, store, data })
-    }
-    const params = toRefs(data)
+      _changeSetting({ type, value, store, data });
+    };
+    const params = toRefs(data);
     return {
       ...params,
       showDraw,
-      changeSetting
-    }
-  }
-}
+      changeSetting,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/css/themes.scss';
+@import "@/assets/css/themes.scss";
 $nav-bg-dark: #273352;
 
 .draw-content {
@@ -152,7 +156,7 @@ $nav-bg-dark: #273352;
 
   //  box-shadow: 0 0 2.5px red;
   &.nav-item::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -164,7 +168,7 @@ $nav-bg-dark: #273352;
   }
 
   &.nav-item::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -222,7 +226,7 @@ $nav-bg-dark: #273352;
       border-color: $systemTheme;
 
       &::before {
-        content: '\2713';
+        content: "\2713";
         font-size: 14px;
         color: #fff;
         position: absolute;

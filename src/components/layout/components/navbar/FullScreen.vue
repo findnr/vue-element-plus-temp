@@ -1,30 +1,16 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-02-25 11:01:26
- * @LastEditTime: 2022-02-25 16:50:58
+ * @LastEditTime: 2022-02-28 15:12:58
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\components\layout\components\navbar\FullScreen.vue
  * QQ:504875043@qq.com
 -->
 <template>
-  <el-tooltip
-    class="item"
-    effect="dark"
-    :content="fullscreen ? '退出全屏' : '全屏'"
-    placement="bottom"
-  >
-    <svg-icon
-      v-if="!fullscreen"
-      name="full-screen-max"
-      @click="handleFullScreen"
-    ></svg-icon>
-    <svg-icon
-      :sss="fullscreen"
-      v-else
-      name="full-screen-min"
-      @click="handleFullScreen"
-    ></svg-icon>
+  <el-tooltip class="item" effect="dark" :content="fullscreen ? '退出全屏' : '全屏'" placement="bottom">
+    <svg-icon v-if="!fullscreen" name="full-screen-max" @click="handleFullScreen"></svg-icon>
+    <svg-icon :sss="fullscreen" v-else name="full-screen-min" @click="handleFullScreen"></svg-icon>
   </el-tooltip>
 </template>
 <script>
