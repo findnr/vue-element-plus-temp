@@ -36,4 +36,4 @@ jobs:
           git add .
           git commit -m "GitHub Actions Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
           git push 
-          git push --force --quiet "https://$GITHUB_TOKEN@$GITHUB_REPO" master:main
+          git push --force --quiet "https://$GITHUB_TOKEN@$GITHUB_REPO" main:main
