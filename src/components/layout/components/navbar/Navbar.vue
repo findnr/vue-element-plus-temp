@@ -1,7 +1,7 @@
 <!--
  * @Author: 张江亮
  * @Date: 2022-02-24 11:49:52
- * @LastEditTime: 2022-03-01 15:15:26
+ * @LastEditTime: 2022-03-02 13:42:41
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\components\layout\components\navbar\Navbar.vue
@@ -27,12 +27,11 @@
       </div>
     </div>
   </div>
-  <system-setting ref="setting"></system-setting>
+  <system-setting ref="settings"></system-setting>
 </template>
 
 <script setup>
-import { reactive, toRefs, computed, watch } from "vue";
-import { Fold, Expand, Setting } from "@element-plus/icons-vue";
+import { reactive, ref, toRefs, computed, watch, onMounted } from "vue";
 
 import { useStore } from "vuex";
 import { getBreadcrumb } from "../../../../utils/storage";
@@ -44,12 +43,13 @@ const props = defineProps({
 const { showLogo, navbarInfo } = toRefs(props)
 const store = useStore();
 const data = reactive({
-  setting: null,
   breadcrumb: getBreadcrumb(),
 });
 
+const settings = ref(null)
 // 显示设置页面
-const showSetting = () => data.setting.showDraw();
+
+const showSetting = () => settings.value.showDraw();
 
 // 是否显示Logo
 const isShowLogo = computed(() => {
@@ -68,6 +68,7 @@ watch(
   () => store.state.activeMenu,
   (value, old) => (data.breadcrumb = getBreadcrumb())
 );
+
 </script>
 
 <style></style>

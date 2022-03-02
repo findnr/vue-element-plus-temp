@@ -1,10 +1,10 @@
 /*
  * @Author: 程英明
  * @Date: 2021-12-01 14:56:33
- * @LastEditTime: 2021-12-16 15:53:47
+ * @LastEditTime: 2022-03-02 16:03:42
  * @LastEditors: 程英明
  * @Description: 
- * @FilePath: \vue-element-plus-temp\src\utils\request.js
+ * @FilePath: \vue-element-plus-temp\src\utils\axios.js
  * QQ:504875043@qq.com
  */
 import axios from "axios"
@@ -45,7 +45,6 @@ http.interceptors.request.use(
 
 http.interceptors.response.use(
     response => {
-
         //关闭动画
         loading.close()
 

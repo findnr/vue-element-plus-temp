@@ -16,8 +16,6 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
       - name: Checkout
         uses: actions/checkout@main
@@ -26,15 +24,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - name: run deploy.sh
+        run: npm install && npm run build
+      - name: git add . && git commit -m "auto build" git push
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        run: npm install && npm run deploy
-      - name: run deploy.sh
-        uses: findnr/vue-element-plus-temp@main
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BASE_BRANCH: main
-          BRANCH: main
-          FOLDER: docs/dist
-          BUILD_SCRIPT: npm install && npm run build && cd docs/dist && cd -
+          GITHUB_REPO: github.com/findnr/vue-element-plus-temp
+        run: |
+          git config user.name "cym504875043"
+          git config user.email "504875043@qq.com"
+          git add .
+          git commit -m "GitHub Actions Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
+          git push 
+          git push --force --quiet "https://${{ secrets.ACCESS_TOKEN }}@$GITHUB_REPO" master:main
