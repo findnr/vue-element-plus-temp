@@ -5,13 +5,12 @@ name: ci
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -20,21 +19,21 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: action/checkout@master
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: run deploy.sh
-      env:
-        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      run: npm install && npm run deploy
-    - name: run deploy.sh
-      uses: findnr/vue-element-plus-temp@mian
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BASE_BRANCH: master
-        BRANCH: test
-        FOLDER: docs/dist
-        BUILD_SCRIPT: npm install && npm run build && cd docs/dist && cd -
+      - uses: action/checkout@main
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - name: run deploy.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: npm install && npm run deploy
+      - name: run deploy.sh
+        uses: findnr/vue-element-plus-temp@mian
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BASE_BRANCH: main
+          BRANCH: test
+          FOLDER: docs/dist
+          BUILD_SCRIPT: npm install && npm run build && cd docs/dist && cd -
