@@ -25,4 +25,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - name: run npm
-        run: npm install && npm run build && ls
+        run: npm install && npm run build && rm -rf node_modules && ls
