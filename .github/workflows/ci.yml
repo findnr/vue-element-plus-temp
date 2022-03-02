@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: findnr/vue-element-plus-temp@main
+        uses: actions/checkout@main
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
