@@ -19,7 +19,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: action/checkout@master
+      - uses: action/checkout@main
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -34,6 +34,6 @@ jobs:
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BASE_BRANCH: main
-          BRANCH: test
+          BRANCH: main
           FOLDER: docs/dist
           BUILD_SCRIPT: npm install && npm run build && cd docs/dist && cd -
