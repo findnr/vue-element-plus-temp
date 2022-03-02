@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 09:52:58
- * @LastEditTime: 2022-03-02 16:15:26
+ * @LastEditTime: 2022-03-02 16:35:24
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\vite.config.js
@@ -24,7 +24,7 @@ export default defineConfig({
     host: '0.0.0.0'
   },
   build: {
-    outDir: '/docs',
+    outDir: 'docs',
     rollupOptions: {
       output: {
         entryFileNames: `assets/[name].${timestamp}.js`,
