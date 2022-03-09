@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-01-18 14:03:01
- * @LastEditTime: 2022-03-09 11:01:19
+ * @LastEditTime: 2022-03-09 11:24:17
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\components\auth\CymLogin.vue
@@ -103,7 +103,7 @@ const getNewCode = () => {
     }
 };
 const GET_CODE = (data = {}) => {
-    get("commom/code/code", data).then((res) => {
+    get("common/code/code", data).then((res) => {
         console.log(res);
         if (res.code == 200) {
             code_img.code_key = res.code_key;
