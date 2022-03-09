@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2022-02-21 10:21:12
- * @LastEditTime: 2022-03-09 10:38:47
+ * @LastEditTime: 2022-03-09 11:14:51
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\api\code.js
@@ -13,6 +13,6 @@ import qs from "qs";
 
 let url = config.req_url;
 
-export function get(data = {}, ttt = '') {
-    return http.post(url + 'common/code/code', qs.stringify(data))
+export function get(action = '', data = {}) {
+    return http.post(url + action, qs.stringify(data))
 }
