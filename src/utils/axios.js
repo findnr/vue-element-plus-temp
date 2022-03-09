@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-12-01 14:56:33
- * @LastEditTime: 2022-03-02 16:03:42
+ * @LastEditTime: 2022-03-09 10:58:16
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\utils\axios.js
@@ -39,12 +39,13 @@ http.interceptors.request.use(
         //关闭动画
         loading.close()
 
-        return Promise.reject();
+        return Promise.reject(error);
     }
 );
 
 http.interceptors.response.use(
     response => {
+
         //关闭动画
         loading.close()
 
@@ -57,14 +58,14 @@ http.interceptors.response.use(
         if (response.status === 200) {
             return response.data;
         } else {
-            Promise.reject();
+            Promise.reject(response);
         }
     },
     error => {
         //关闭动画
         loading.close()
 
-        return Promise.reject();
+        return Promise.reject(error);
     }
 );
 
