@@ -1,8 +1,8 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 09:52:58
- * @LastEditTime: 2022-04-25 09:16:07
- * @LastEditors: 程英明
+ * @LastEditTime: 2022-04-25 19:49:15
+ * @LastEditors: Please set LastEditors
  * @Description: 
  * @FilePath: \vue-element-plus-temp\vite.config.js
  * QQ:504875043@qq.com
@@ -18,7 +18,7 @@ const timestamp = new Date().getTime();
 
 const AutoImports = () => {
   return AutoImport({
-    imports: ['vue', 'vue-router']
+    imports: ['vue', 'vue-router','vuex']
   })
 }
 // 生产模式

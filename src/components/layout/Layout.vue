@@ -1,15 +1,15 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-26 14:53:32
- * @LastEditTime: 2022-03-01 10:20:18
- * @LastEditors: 程英明
+ * @LastEditTime: 2022-04-25 20:38:02
+ * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \vue-element-plus-temp\src\components\layout\Layout.vue
 -->
 <template>
   <el-container v-if="navbarType === '左侧菜单模式'">
     <el-aside :width="sidebarWidth">
-      <sidebar :showLogo="true" :menuList="menuList"></sidebar>
+      <sidebar :showLogo="true" :menuList="menuList" :titleName="titleName"></sidebar>
     </el-aside>
     <el-container>
       <el-header>
@@ -23,11 +23,11 @@
   </el-container>
   <el-container v-else-if="navbarType === '顶部菜单混合模式'">
     <el-header>
-      <navbar :showLogo="true" :navbarInfo="navbarInfo"></navbar>
+      <navbar :showLogo="true" :navbarInfo="navbarInfo" ></navbar>
     </el-header>
     <el-container>
       <el-aside :width="sidebarWidth">
-        <sidebar :menuList="menuList"></sidebar>
+        <sidebar :menuList="menuList" :titleName="titleName"></sidebar>
       </el-aside>
       <el-container direction="vertical">
         <tabs></tabs>
@@ -42,7 +42,7 @@
     <el-header>
       <navbar :showLogo="true" :navbarInfo="navbarInfo">
         <template v-slot:sidebar>
-          <sidebar mode="horizontal" :menuList="menuList"></sidebar>
+          <sidebar mode="horizontal" :menuList="menuList" :titleName="titleName"></sidebar>
         </template>
       </navbar>
     </el-header>
@@ -56,7 +56,7 @@
 
   <el-container v-else>
     <el-aside width="80px">
-      <sidebar :showLogo="true" :collapse="true" :menuList="menuList"></sidebar>
+      <sidebar :showLogo="true" :collapse="true" :menuList="menuList" :titleNames="titleName"></sidebar>
     </el-aside>
     <el-container>
       <el-header>
@@ -71,16 +71,11 @@
 </template>
 
 <script setup>
-import { computed, toRefs } from "vue";
-import { useRoute } from "vue-router";
-import { useStore } from "vuex";
-
-const props = defineProps({
+defineProps({
   menuList: Array,
   navbarInfo: Object,
+  titleName:String,
 });
-const { menuList, navbarInfo } = toRefs(props);
-
 const route = useRoute();
 const store = useStore();
 

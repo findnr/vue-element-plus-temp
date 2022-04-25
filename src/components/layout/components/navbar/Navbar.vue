@@ -1,8 +1,8 @@
 <!--
  * @Author: 张江亮
  * @Date: 2022-02-24 11:49:52
- * @LastEditTime: 2022-03-02 13:42:41
- * @LastEditors: 程英明
+ * @LastEditTime: 2022-04-25 19:47:40
+ * @LastEditors: Please set LastEditors
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\components\layout\components\navbar\Navbar.vue
  * @QQ: 123316216@qq.com
@@ -31,16 +31,12 @@
 </template>
 
 <script setup>
-import { reactive, ref, toRefs, computed, watch, onMounted } from "vue";
-
-import { useStore } from "vuex";
 import { getBreadcrumb } from "../../../../utils/storage";
 const props = defineProps({
   showLogo: Boolean,
   navbarInfo: Object,
 })
 
-const { showLogo, navbarInfo } = toRefs(props)
 const store = useStore();
 const data = reactive({
   breadcrumb: getBreadcrumb(),

@@ -1,8 +1,8 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-02-25 11:35:36
- * @LastEditTime: 2022-02-28 11:03:09
- * @LastEditors: 程英明
+ * @LastEditTime: 2022-04-25 19:46:17
+ * @LastEditors: Please set LastEditors
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\components\SvgIcon.vue
  * QQ:504875043@qq.com
@@ -14,8 +14,6 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-
 const props = defineProps({
   name: {
     type: String,

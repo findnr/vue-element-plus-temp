@@ -1,32 +1,28 @@
 <!--
  * @Author: 张江亮
  * @Date: 2022-02-24 11:49:52
- * @LastEditTime: 2022-02-28 15:11:58
- * @LastEditors: 程英明
+ * @LastEditTime: 2022-04-25 21:21:43
+ * @LastEditors: Please set LastEditors
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\components\layout\components\Logo.vue
  * @QQ: 123316216@qq.com
 -->
 <template>
-  <div class="el-logo">
+  <div class="el-logo" style="height:auto;padding:10px;">
     <!-- <img src="@/assets/logo.png" alt="" /> -->
-    <span class="title" :class="{ 'is-hide': isHideTitle }">单位会员管理系统</span>
+    <span class="title text-center w-full" :class="{ 'is-hide': isHideTitle }" style="white-space:normal;margin:0;">{{titleName}}</span>
   </div>
 </template>
 
-<script>
-import { computed } from "vue";
-import { useStore } from "vuex";
-export default {
-  name: "Logo",
-  setup() {
-    const store = useStore();
-    const isHideTitle = computed(() => {
-      return store.state.isCollapse;
-    });
-    return {
-      isHideTitle,
-    };
-  },
-};
+<script setup>
+
+defineProps({
+  titleName: String,
+})
+const store = useStore();
+const isHideTitle = computed(() => {
+  return store.state.isCollapse;
+});
+
+
 </script>

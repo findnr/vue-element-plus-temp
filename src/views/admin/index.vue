@@ -1,15 +1,15 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-02-25 13:31:06
- * @LastEditTime: 2022-03-01 16:52:48
- * @LastEditors: 程英明
+ * @LastEditTime: 2022-04-25 21:33:30
+ * @LastEditors: Please set LastEditors
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\index.vue
  * QQ:504875043@qq.com
 -->
 <template>
   <div class="index h-screen">
-    <layout :menuList="menuList" :navbarInfo="navbarInfo">
+    <layout :menuList="menuList" :navbarInfo="navbarInfo" titleName="会员后台管理系统">
       <template #home>
         <router-view></router-view>
       </template>
@@ -18,19 +18,13 @@
 </template>
 
 <script setup>
-const menuList = [
+const menuList = reactive([
   {
     menuId: "111",
     menuName: "系统设置",
     icon: "tools",
     children: [
-      {
-        menuId: "111-1",
-        menuName: "退出系统",
-        path: "/admin/system/loginout",
-        children: [],
-        icon: "arrow-right-bold",
-      },
+     
     ]
   },
   {
@@ -43,19 +37,26 @@ const menuList = [
         menuName: "个人信息",
         path: "/admin/user/info",
         children: [],
-        icon: "menu",
+        icon: "info-filled",
       },
       {
         menuId: "222-2",
         menuName: "修改密码",
         path: "/admin/user/password",
         children: [],
-        icon: "menu",
+        icon: "edit-pen",
+      },
+       {
+        menuId: "222-3",
+        menuName: "退出系统",
+        path: "/admin/user/loginout",
+        children: [],
+        icon: "arrow-right-bold",
       },
     ]
   }
-];
-const navbarInfo = {
+]);
+const navbarInfo =  reactive({
   img_url: '',
   url_list: [{
     menuId: "222-2",
@@ -66,12 +67,12 @@ const navbarInfo = {
     menuName: "个人信息",
     path: "/admin/user/info",
   }, {
-    menuId: "111-1",
+    menuId: "222-3",
     menuName: "退出系统",
-    path: "/admin/system/loginout",
+    path: "/admin/user/loginout",
   }],
   name: '欢迎使用系统',
-}
+})
 </script>
 
 <style scoped lang="scss">
