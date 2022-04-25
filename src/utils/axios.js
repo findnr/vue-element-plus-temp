@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-12-01 14:56:33
- * @LastEditTime: 2022-03-09 10:58:16
+ * @LastEditTime: 2022-04-25 08:52:16
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\utils\axios.js
@@ -14,9 +14,6 @@ import router from '../router'
 import { ElMessage, ElLoading } from 'element-plus'
 
 const http = axios.create({
-    headers: {
-        'Content-Type': 'application/json',
-    },
     //设置请求时间过期
     timeout: 10000
 });
@@ -38,17 +35,14 @@ http.interceptors.request.use(
     error => {
         //关闭动画
         loading.close()
-
         return Promise.reject(error);
     }
 );
 
 http.interceptors.response.use(
     response => {
-
         //关闭动画
         loading.close()
-
         const { data } = response
         ElMessage.success({
             message: data.msg,
@@ -64,7 +58,6 @@ http.interceptors.response.use(
     error => {
         //关闭动画
         loading.close()
-
         return Promise.reject(error);
     }
 );

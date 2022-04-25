@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2022-01-18 09:45:36
+ * @LastEditTime: 2022-04-25 09:20:41
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
@@ -112,5 +112,23 @@ npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 
 ```
-
+### 自动路由（src/router）路由守卫、自动模板加载（plugins/component）
+### 构建使用不同的配制参数（.env .env.builds env.github ,vite.config.js）这些文件有变化
+### pinia支持
+```shell
+#安装
+pnmp add pinia
+#在main.js引入
+import { createPinia } from 'pinia'
+app.use(createPinia())
+```
+### unplugin-auto-import/vite 自动导入vue3/vue-router/pinia Api
+```shell
+pnpm add unplugin-auto-import -D
+```
+```shell
+#vite.config.js
+import AutoImport from 'unplugin-auto-import/vite'
+plugins: [AutoImports()]
+```
 

@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 09:52:58
- * @LastEditTime: 2022-03-04 11:09:43
+ * @LastEditTime: 2022-04-25 09:16:07
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\vite.config.js
@@ -10,18 +10,23 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from "path"
+import AutoImport from 'unplugin-auto-import/vite'
 
 import { svgLoader } from './src/utils/svg-loader.js'
 
 const timestamp = new Date().getTime();
 
-
+const AutoImports = () => {
+  return AutoImport({
+    imports: ['vue', 'vue-router']
+  })
+}
 // 生产模式
 const builds = (url, dir) => {
   console.log(dir)
   return defineConfig({
     base: url,
-    plugins: [vue(), svgLoader('/src/assets/svg/')],
+    plugins: [vue(), svgLoader('/src/assets/svg/'), AutoImports()],
     server: {
       port: 3000,
       open: true,
