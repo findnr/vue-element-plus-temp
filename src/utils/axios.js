@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-12-01 14:56:33
- * @LastEditTime: 2022-05-05 14:40:16
+ * @LastEditTime: 2022-05-05 16:37:26
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\utils\axios.js
@@ -21,7 +21,7 @@ const http = axios.create({
 //加载动画
 let loading = null
 //控制提示框
-let msgShow = true;
+http.msgShow = true;
 http.interceptors.request.use(
     config => {
         let token = getToken();
