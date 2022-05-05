@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2022-02-21 10:21:12
- * @LastEditTime: 2022-03-09 11:18:35
+ * @LastEditTime: 2022-05-05 16:23:27
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\api\code.js
@@ -13,6 +13,7 @@ import qs from "qs";
 
 let url = config.req_url;
 
-export function get(action = '', data = {}) {
+export function get(action = '', data = {}, msgShow = true) {
+    http.msgShow = msgShow
     return http.post(url + action, qs.stringify(data))
 }

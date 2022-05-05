@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-12-01 14:56:33
- * @LastEditTime: 2022-04-25 08:52:16
+ * @LastEditTime: 2022-05-05 14:40:16
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\utils\axios.js
@@ -20,7 +20,8 @@ const http = axios.create({
 
 //加载动画
 let loading = null
-
+//控制提示框
+let msgShow = true;
 http.interceptors.request.use(
     config => {
         let token = getToken();
@@ -44,11 +45,9 @@ http.interceptors.response.use(
         //关闭动画
         loading.close()
         const { data } = response
-        ElMessage.success({
-            message: data.msg,
-            type: 'success',
-        })
-
+        if (http.msgShow) {
+            data.code == 200 ? ElMessage.success({ message: data.msg }) : ElMessage.error({ message: data.msg })
+        }
         if (response.status === 200) {
             return response.data;
         } else {

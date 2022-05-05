@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2022-04-25 09:20:41
+ * @LastEditTime: 2022-05-05 16:29:04
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
@@ -130,5 +130,11 @@ pnpm add unplugin-auto-import -D
 #vite.config.js
 import AutoImport from 'unplugin-auto-import/vite'
 plugins: [AutoImports()]
+```
+### 接口使用默认是有弹框的可以定义不显示弹框
+```js
+import http from "../utils/axios"
+//这样设置就不会出弹框
+http.msgShow = false
 ```
 
