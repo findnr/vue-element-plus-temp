@@ -12,7 +12,7 @@
         <div class="bg-[#fff] rounded-lg shadow-2xl justify-items-center" style="width: 850px; height: 500px">
             <div class="flex h-full">
                 <div class="h-full w-1/2 pt-14 pl-10 pr-10">
-                    <div class="content-center leading-[50px] w-full mt-10 text-center text-[30px]">欢迎单位会员登录</div>
+                    <div class="content-center leading-[50px] w-full mt-10 text-center text-[30px]">欢迎单位会员登录123</div>
                     <div class="pt-3">
                         <input v-model="forms.user"
                             class="text-sm w-full py-2 px-3 border-2 border-indigo-200 rounded-lg focus:outline-blue-500"
