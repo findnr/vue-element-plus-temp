@@ -18,12 +18,11 @@ const timestamp = new Date().getTime();
 
 const AutoImports = () => {
   return AutoImport({
-    imports: ['vue', 'vue-router','vuex']
+    imports: ['vue', 'vue-router', 'vuex']
   })
 }
 // 生产模式
 const builds = (url, dir) => {
-  console.log(dir)
   return defineConfig({
     base: url,
     plugins: [vue(), svgLoader('/src/assets/svg/'), AutoImports()],
