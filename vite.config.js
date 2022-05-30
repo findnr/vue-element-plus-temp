@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 09:52:58
- * @LastEditTime: 2022-05-31 06:37:49
+ * @LastEditTime: 2022-05-31 07:27:58
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\vite.config.js
@@ -56,10 +56,10 @@ const builds = (url, dir) => {
             // } else {
             //   return 'ttt';
             // }
-            if (id.includes('node_modules')) {
-              // return id.toString().split('node_modules/')[1].split('/')[1].toString().split('.')[2];
-              return md5(id.toString().split('node_modules/')[1].split('/')[1].toString().split('.')[2]);
-            }
+            // if (id.includes('node_modules')) {
+            //   // return id.toString().split('node_modules/')[1].split('/')[1].toString().split('.')[2];
+            //   return md5(id.toString().split('node_modules/')[1].split('/')[1].toString().split('.')[2]);
+            // }
           }
         }
       }
