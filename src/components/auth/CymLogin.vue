@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-01-18 14:03:01
- * @LastEditTime: 2022-05-05 14:43:21
+ * @LastEditTime: 2022-05-31 06:55:00
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\components\auth\CymLogin.vue
@@ -30,8 +30,8 @@
                         <img :src="code_img.url" alt @click="getNewCode" class="cursor-pointer" />
                     </div>
                     <div class="pt-3 grid grid-cols-2 gap-2 place-items-stretch">
-                        <el-button class="bg-[#409eff]" type="primary" @click="login">确认登录</el-button>
-                        <el-button class="bg-[#f56c6c]" type="danger" @click="reset">重置信息</el-button>
+                        <el-button class="bg-[#409eff]" type="primary" size="large" @click="login">确认登录</el-button>
+                        <el-button class="bg-[#f56c6c]" type="danger" size="large" @click="reset">重置信息</el-button>
                     </div>
                     <div class="pt-3 grid grid-cols-3 gap-4 place-items-stretch">
                         <el-link href="https://element.eleme.io" target="_blank">注册用户</el-link>
