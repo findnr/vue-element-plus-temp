@@ -40,10 +40,9 @@ $logoWidth: 200px;
 // 边距
 $marginWidth: 1rem;
 $paddingWidth: 1rem;
-@media screen and(max-width: 1000px) {
+@media screen and (max-width: 1000px) {
   $paddingWidth: 10px;
 }
-
 // 边框
 $borderColor: var(--border-color);
 $border: 1px solid $borderColor;

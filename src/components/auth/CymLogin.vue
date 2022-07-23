@@ -1,14 +1,15 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-01-18 14:03:01
- * @LastEditTime: 2022-05-31 06:55:00
+ * @LastEditTime: 2022-07-23 14:29:23
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\components\auth\CymLogin.vue
  * QQ:504875043@qq.com
 -->
 <template>
-    <div class="index bg-gradient-to-t from-blue-500 to-blue-300 h-screen grid justify-items-center content-center">
+    
+    <div class="index h-screen grid justify-items-center content-center" style="background: linear-gradient(to bottom, #337ecc 50%,#337ecc 50%,#efefef 50%,#efefef 100%)">
         <div class="bg-[#fff] rounded-lg shadow-2xl justify-items-center" style="width: 850px; height: 500px">
             <div class="flex h-full">
                 <div class="h-full w-1/2 pt-14 pl-10 pr-10">
@@ -39,7 +40,7 @@
                         <el-link href="https://element.eleme.io" target="_blank">查看其它信息</el-link>
                     </div>
                 </div>
-                <div class="h-full w-1/2 bg-green-700 rounded-r-lg">
+                <div class="h-full w-1/2 bg-[#529b2e] rounded-r-lg">
                     <div class="p-2 pt-4 text-gray-200 text-[20px] animate-bounce">
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-red-300"></span>
                         贵州省水利工程协会温馨提示
