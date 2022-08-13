@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 09:52:58
- * @LastEditTime: 2022-05-31 07:27:58
+ * @LastEditTime: 2022-08-14 07:48:03
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\vite.config.js
@@ -49,17 +49,12 @@ const builds = (url, dir) => {
           chunkFileNames: `assets/[name].${timestamp}.js`,
           assetFileNames: `assets/[name].${timestamp}.[ext]`,
           manualChunks(id) {
-            // if (id.includes('icons-vue')) {
-            //   return 'icons-vue';
-            // } else if (id.includes('element-plus')) {
-            //   return 'element-plus';
-            // } else {
-            //   return 'ttt';
-            // }
-            // if (id.includes('node_modules')) {
-            //   // return id.toString().split('node_modules/')[1].split('/')[1].toString().split('.')[2];
-            //   return md5(id.toString().split('node_modules/')[1].split('/')[1].toString().split('.')[2]);
-            // }
+            if (id.includes('node_modules')) {
+              let name = id.toString().split('node_modules/')[1].split('/')[1].toString();
+              if (name.includes('wangeditor') || name.includes('element-plus') || name.includes('xlsx'))
+                return md5(name);
+              // return md5(id.toString().split('node_modules/')[1].split('/')[1].toString().split('.')[1]);
+            }
           }
         }
       }
