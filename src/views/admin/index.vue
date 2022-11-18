@@ -1,8 +1,8 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-02-25 13:31:06
- * @LastEditTime: 2022-04-25 21:33:30
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-11-18 16:18:34
+ * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\index.vue
  * QQ:504875043@qq.com
@@ -16,46 +16,14 @@
     </layout>
   </div>
 </template>
-
 <script setup>
-const menuList = reactive([
-  {
-    menuId: "111",
-    menuName: "系统设置",
-    icon: "tools",
-    children: [
-     
-    ]
-  },
-  {
-    menuId: "222",
-    menuName: "个人中心",
-    icon: "avatar",
-    children: [
-      {
-        menuId: "222-1",
-        menuName: "个人信息",
-        path: "/admin/user/info",
-        children: [],
-        icon: "info-filled",
-      },
-      {
-        menuId: "222-2",
-        menuName: "修改密码",
-        path: "/admin/user/password",
-        children: [],
-        icon: "edit-pen",
-      },
-       {
-        menuId: "222-3",
-        menuName: "退出系统",
-        path: "/admin/user/loginout",
-        children: [],
-        icon: "arrow-right-bold",
-      },
-    ]
+import {common} from "../../api/admin"
+const menuList = ref([]);
+common('admin/common/getNav',{},false).then(res=>{
+  if(res.code == 200){
+    menuList.value = res.data
   }
-]);
+})
 const navbarInfo =  reactive({
   img_url: '',
   url_list: [{
