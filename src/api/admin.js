@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2022-11-14 16:06:27
- * @LastEditTime: 2022-11-18 16:05:42
+ * @LastEditTime: 2022-11-22 11:15:23
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\api\admin.js
@@ -18,6 +18,10 @@ export function system(action = '', data = {}, msgShow = true) {
     return http.post(url + action, qs.stringify(data))
 }
 export function common(action = '', data = {}, msgShow = true) {
+    http.msgShow = msgShow
+    return http.post(url + action, qs.stringify(data))
+}
+export function mangeruser(action = '', data = {}, msgShow = true) {
     http.msgShow = msgShow
     return http.post(url + action, qs.stringify(data))
 }
