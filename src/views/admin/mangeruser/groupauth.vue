@@ -1,32 +1,17 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-11-15 11:06:19
- * @LastEditTime: 2022-11-22 14:24:53
+ * @LastEditTime: 2022-11-24 14:10:24
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\mangeruser\groupauth.vue
  * QQ:504875043@qq.com
 -->
 <template>
-  <div class="add">
-    <el-button @click="addBox" type="success">
-      <el-icon>
-        <Plus />
-      </el-icon>添加组信息
-    </el-button>
-  </div>
   <el-dialog v-model="isAddBox" title="添加组信息">
-    <el-form :model="addForm">
-      <el-form-item label="组名称">
-        <el-input v-model="addForm.name" />
-      </el-form-item>
-      <el-form-item label="父级名称">
-        <el-select v-model="addForm.parent_id" class="m-2">
-          <el-option label="顶级组名" :value="0" />
-          <el-option v-for="v in selectData" :key="v.id" :label="v.name" :value="v.id" />
-        </el-select>
-      </el-form-item>
-    </el-form>
+    <el-tree :key="treeNum" ref="refTree" :default-checked-keys="selectData" @check-change="authChang" :data="navList"
+      show-checkbox node-key="id" :default-expand-all="false" :expand-on-click-node="false"
+      :props="{ label: 'name' }" />
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="addBoxReset">重置信息</el-button>
@@ -37,17 +22,12 @@
   <div class="index mt-3">
     <el-table :data="tableData" style="width: 100%" row-key="id" border default-expand-all>
       <el-table-column type="index" label="序号" width="180" />
-      <el-table-column prop="name" label="名称" width="180" />
+      <el-table-column prop="name" label="" width="180" />
       <el-table-column label="权限设置">
         <template #default="scope">
           <el-button @click="midBox(scope.row)" plain type="success">
             <el-icon style="font-size: 20px">
               <Edit />
-            </el-icon>
-          </el-button>
-          <el-button @click="del(scope.row)" plain type="danger">
-            <el-icon style="font-size: 20px">
-              <Delete />
             </el-icon>
           </el-button>
         </template>
@@ -57,15 +37,17 @@
 </template>
 <script setup>
 import { mangeruser } from "../../../api/admin";
-
 const tableData = ref([]);
+const navList = ref([]);
 const selectData = ref([]);
-const checkData = ref([]);
+const refTree = ref(null);
+const id = ref(0)
+const treeNum = ref(0)
 const getMangerGroup = () => {
   mangeruser("admin/mangerUser/groupAuth/get", {}, false).then((res) => {
     if (res.code == 200) {
       tableData.value = res.data.newData;
-      selectData.value = res.data.oldData;
+      navList.value = res.data.navList;
     }
   });
 };
@@ -76,14 +58,25 @@ const addBox = () => {
   isAddBox.value = true;
 };
 const addBoxReset = () => {
-  addForm.value = {};
-  addForm.value.parent_id = 0;
+  selectData.value = [];
+  id.value = 0;
 };
 const midBox = (obj) => {
-  console.log(obj);
+  id.value = obj.id
+  selectData.value = obj.auth.split(',');
+  treeNum.value++
+  isAddBox.value = true;
 };
+const authChang = () => {
+  let datas = refTree.value.getCheckedNodes()
+  let new_datas = [];
+  datas.forEach(v => {
+    new_datas.push(v.id)
+  });
+  selectData.value = Array.from(new Set(new_datas));
+}
 const add = () => {
-  mangeruser("admin/mangerUser/groupAuth/add", addForm.value).then((res) => {
+  mangeruser("admin/mangerUser/groupAuth/mid", { id: id.value, auth: selectData.value.join(',') }).then((res) => {
     if (res.code == 200) {
       isAddBox.value = false;
       addBoxReset();

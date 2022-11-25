@@ -11,7 +11,7 @@
     "@element-plus/icons-vue": "^1.1.4",
     "axios": "^0.24.0",
     "element-plus": "^2.2.22",
-    "pinia": "^2.0.25",
+    "pinia": "^2.0.26",
     "qs": "^6.11.0",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6",
