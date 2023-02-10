@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-11-15 11:06:19
- * @LastEditTime: 2022-11-25 10:36:25
+ * @LastEditTime: 2023-02-10 16:03:55
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\mangeruser\user.vue
@@ -90,7 +90,7 @@ import { mangeruser } from "../../../api/admin";
 const tableData = ref([]);
 const selectData = ref([]);
 const getMangerUser = () => {
-  mangeruser("admin/mangerUser/user/get", {}, false).then((res) => {
+  mangeruser("mangerUser/user/get", {}, false).then((res) => {
     if (res.code == 200) {
       tableData.value = res.data.user;
       selectData.value = res.data.role
@@ -111,7 +111,7 @@ const midBox = (obj) => {
   console.log(obj);
 };
 const mid = (data) => {
-  mangeruser("admin/mangerUser/user/mid", data).then((res) => {
+  mangeruser("mangerUser/user/mid", data).then((res) => {
     if (res.code == 200) {
       getMangerUser();
     }
@@ -124,7 +124,7 @@ const mid2 = (obj) => {
   mid({ id: obj.id, status: obj.status })
 }
 const add = () => {
-  mangeruser("admin/mangerUser/user/add", addForm.value).then((res) => {
+  mangeruser("mangerUser/user/add", addForm.value).then((res) => {
     if (res.code == 200) {
       isAddBox.value = false;
       addBoxReset();

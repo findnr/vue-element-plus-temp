@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-11-14 15:53:56
- * @LastEditTime: 2022-11-15 10:52:55
+ * @LastEditTime: 2023-02-10 16:04:03
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\system\action.vue
@@ -36,7 +36,7 @@
 <script setup>
 import { system } from "../../../api/admin"
 const tableData = ref([])
-system('admin/system/action/get', {}, false).then(res => {
+system('system/action/get', {}, false).then(res => {
     if (res.code == 200) {
         tableData.value = res.data
     }

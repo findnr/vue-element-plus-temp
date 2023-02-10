@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-02-25 13:31:06
- * @LastEditTime: 2022-11-18 16:18:34
+ * @LastEditTime: 2023-02-10 16:05:11
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\index.vue
@@ -17,14 +17,14 @@
   </div>
 </template>
 <script setup>
-import {common} from "../../api/admin"
+import { common } from "../../api/admin"
 const menuList = ref([]);
-common('admin/common/getNav',{},false).then(res=>{
-  if(res.code == 200){
+common('common/getNav', {}, false).then(res => {
+  if (res.code == 200) {
     menuList.value = res.data
   }
 })
-const navbarInfo =  reactive({
+const navbarInfo = reactive({
   img_url: '',
   url_list: [{
     menuId: "222-2",
@@ -44,6 +44,5 @@ const navbarInfo =  reactive({
 </script>
 
 <style scoped lang="scss">
-.index {
-}
+.index {}
 </style>

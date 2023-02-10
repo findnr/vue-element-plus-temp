@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-11-15 11:06:19
- * @LastEditTime: 2022-11-24 14:10:24
+ * @LastEditTime: 2023-02-10 16:03:40
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\mangeruser\groupauth.vue
@@ -44,7 +44,7 @@ const refTree = ref(null);
 const id = ref(0)
 const treeNum = ref(0)
 const getMangerGroup = () => {
-  mangeruser("admin/mangerUser/groupAuth/get", {}, false).then((res) => {
+  mangeruser("mangerUser/groupAuth/get", {}, false).then((res) => {
     if (res.code == 200) {
       tableData.value = res.data.newData;
       navList.value = res.data.navList;
@@ -76,7 +76,7 @@ const authChang = () => {
   selectData.value = Array.from(new Set(new_datas));
 }
 const add = () => {
-  mangeruser("admin/mangerUser/groupAuth/mid", { id: id.value, auth: selectData.value.join(',') }).then((res) => {
+  mangeruser("mangerUser/groupAuth/mid", { id: id.value, auth: selectData.value.join(',') }).then((res) => {
     if (res.code == 200) {
       isAddBox.value = false;
       addBoxReset();

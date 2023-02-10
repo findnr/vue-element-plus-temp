@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-11-15 11:06:19
- * @LastEditTime: 2022-11-25 10:05:11
+ * @LastEditTime: 2023-02-10 16:03:11
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\mangeruser\auth.vue
@@ -49,7 +49,7 @@ const refTree = ref(null);
 const id = ref(0)
 const treeNum = ref(0)
 const getManger = () => {
-  mangeruser("admin/mangerUser/auth/get", {}, false).then((res) => {
+  mangeruser("mangerUser/auth/get", {}, false).then((res) => {
     if (res.code == 200) {
       tableData.value = res.data.user;
       navList.value = res.data.navList;
@@ -80,7 +80,7 @@ const authChang = () => {
   selectData.value = Array.from(new Set(new_datas));
 }
 const add = () => {
-  mangeruser("admin/mangerUser/auth/mid", { id: id.value, auths: selectData.value.join(',') }).then((res) => {
+  mangeruser("mangerUser/auth/mid", { id: id.value, auths: selectData.value.join(',') }).then((res) => {
     if (res.code == 200) {
       isAddBox.value = false;
       addBoxReset();

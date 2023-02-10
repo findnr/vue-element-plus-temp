@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-11-15 11:06:19
- * @LastEditTime: 2022-11-22 13:22:22
+ * @LastEditTime: 2023-02-10 16:03:29
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\mangeruser\group.vue
@@ -63,7 +63,7 @@ import { mangeruser } from "../../../api/admin";
 const tableData = ref([]);
 const selectData = ref([]);
 const getMangerGroup = () => {
-  mangeruser("admin/mangerUser/group/get", {}, false).then((res) => {
+  mangeruser("mangerUser/group/get", {}, false).then((res) => {
     if (res.code == 200) {
       tableData.value = res.data.newData;
       selectData.value = res.data.oldData;
@@ -84,7 +84,7 @@ const midBox = (obj) => {
   console.log(obj);
 };
 const add = () => {
-  mangeruser("admin/mangerUser/group/add", addForm.value).then((res) => {
+  mangeruser("mangerUser/group/add", addForm.value).then((res) => {
     if (res.code == 200) {
       isAddBox.value = false;
       addBoxReset();
