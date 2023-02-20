@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-11-15 11:06:19
- * @LastEditTime: 2023-02-10 16:03:11
+ * @LastEditTime: 2023-02-13 14:54:45
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\mangeruser\auth.vue
@@ -20,7 +20,7 @@
     </template>
   </el-dialog>
   <div class="index mt-3">
-    <el-table :data="tableData" style="width: 100%">
+    <el-table :data="tableData" style="width: 100%" border>
       <el-table-column type="index" label="序号" width="180" />
       <el-table-column type="index" label="序号" width="50" />
       <el-table-column prop="name_login" label="登录名" width="180" />
@@ -30,10 +30,7 @@
       <el-table-column prop="ar_name" label="所属组" width="180" />
       <el-table-column label="权限设置">
         <template #default="scope">
-          <el-button @click="midBox(scope.row)" plain type="success">
-            <el-icon style="font-size: 20px">
-              <Edit />
-            </el-icon>
+          <el-button @click="midBox(scope.row)" size="small" type="success">修改
           </el-button>
         </template>
       </el-table-column>

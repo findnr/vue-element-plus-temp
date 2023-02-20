@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-11-15 11:06:19
- * @LastEditTime: 2023-02-10 16:04:15
+ * @LastEditTime: 2023-02-14 14:58:13
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\system\nav.vue
@@ -74,7 +74,6 @@
 
             <el-table-column label="权限列表">
                 <template #default="scope">
-
                     <span v-for="v, i in actionData" :key="i">
                         <span v-if="scope.row.action_id.split(',').includes(v.id + '')"> {{ v.name }}、</span>
                     </span>
@@ -84,20 +83,54 @@
             <el-table-column prop="icon" label="图标" width="100" />
             <el-table-column label="操作">
                 <template #default="scope">
-                    <el-button @click="midBox(scope.row)" plain type="success">
-                        <el-icon style=" font-size:20px">
-                            <Edit />
-                        </el-icon>
-                    </el-button>
-                    <el-button @click="del(scope.row)" plain type="danger">
-                        <el-icon style=" font-size:20px">
-                            <Delete />
-                        </el-icon>
-                    </el-button>
+                    <el-button @click="midBox(scope.row)" size="small" type="success">修改</el-button>
+                    <el-button @click="del(scope.row)" size="small" type="danger">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
     </div>
+    <el-dialog v-model="isMidBox" title="修改导航信息">
+        <el-form :model="midForm">
+            <el-form-item label="导航名称">
+                <el-input v-model="midForm.name" />
+            </el-form-item>
+            <el-form-item label="前台URL">
+                <el-input v-model="midForm.index_url" />
+            </el-form-item>
+            <el-form-item label="后台URL">
+                <el-input v-model="midForm.admin_url" />
+            </el-form-item>
+            <el-form-item label="导航类型">
+                <el-radio-group v-model="midForm.nav_type_id" class="ml-4">
+                    <el-radio v-for="v, i in navType" :label="v.id" :key="i">{{ v.name }}</el-radio>
+                </el-radio-group>
+            </el-form-item>
+            <el-form-item label="相关的操作">
+                <el-checkbox-group v-model="midForm.action_id_arr">
+                    <el-checkbox v-for="v, i in actionData" :label="v.id" :key="i">{{ v.name }}</el-checkbox>
+                </el-checkbox-group>
+            </el-form-item>
+            <el-form-item label="Icon图标">
+                <el-input v-model="midForm.icon" />
+            </el-form-item>
+            <el-form-item label="导航排序">
+                <el-input v-model="midForm.sort" />
+            </el-form-item>
+            <el-form-item label="父级导航">
+                <el-select v-model="midForm.parent_id" class="m-2">
+                    <el-option label="顶级导航" :value="0" />
+                    <el-option v-for="v in selectData" :key="v.id" :label="v.name" :value="v.id" />
+                </el-select>
+            </el-form-item>
+        </el-form>
+        <template #footer>
+            <span class="dialog-footer">
+                <el-button type="primary" @click="mid(midForm)">
+                    确认修改
+                </el-button>
+            </span>
+        </template>
+    </el-dialog>
 </template>
 
 <script setup>
@@ -127,8 +160,12 @@ const addBoxReset = () => {
     addForm.value = {}
     addForm.value.parent_id = 0
 }
+const midForm = ref({})
+const isMidBox = ref(false);
 const midBox = (obj) => {
-    console.log(obj)
+    obj.action_id_arr = obj.action_id.split(',').map(function (index) { return index * 1 });
+    midForm.value = obj
+    isMidBox.value = true;
 }
 const add = () => {
     system('nav/nav/add', addForm.value).then(res => {
@@ -139,9 +176,29 @@ const add = () => {
         }
     })
 }
-
+const mid = (obj) => {
+    let temp = JSON.parse(JSON.stringify(obj));
+    if (temp.children != undefined) {
+        delete temp.children;
+    }
+    system("nav/nav/mid", temp).then(res => {
+        if (res.code == 200) {
+            isMidBox.value = false
+            getSystme();
+        }
+    })
+}
 const del = (obj) => {
-    console.log(obj)
+    if (obj.children != undefined) {
+        alert('有子类，不能删除');
+        return;
+    }
+    system("nav/nav/del", { id: obj.id }).then(res => {
+        if (res.code == 200) {
+            isMidBox.value = false
+            getSystme();
+        }
+    })
 }
 </script>
 <script>

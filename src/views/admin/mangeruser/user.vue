@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-11-15 11:06:19
- * @LastEditTime: 2023-02-10 16:03:55
+ * @LastEditTime: 2023-02-14 15:06:00
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\mangeruser\user.vue
@@ -48,7 +48,7 @@
   </el-dialog>
   <div class="index mt-3">
     <el-table :data="tableData" style="width: 100%" row-key="id" border default-expand-all>
-      <el-table-column type="index" label="序号" width="50" />
+      <el-table-column type="index" label="序号" width="80" />
       <el-table-column prop="name_login" label="登录名" width="180" />
       <el-table-column prop="name_real" label="真实名" width="180" />
       <el-table-column prop="phone" label="手机号" width="120" />
@@ -68,20 +68,39 @@
       </el-table-column>
       <el-table-column label="操作">
         <template #default="scope">
-          <el-button @click="midBox(scope.row)" plain type="success">
-            <el-icon style="font-size: 20px">
-              <Edit />
-            </el-icon>
-          </el-button>
-          <el-button @click="del(scope.row)" plain type="danger">
-            <el-icon style="font-size: 20px">
-              <Delete />
-            </el-icon>
-          </el-button>
+          <el-button @click="midBox(scope.row)" size="small" type="success">修改</el-button>
+          <el-button @click="del(scope.row)" size="small" type="danger">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
   </div>
+  <el-dialog v-model="isMidBox" title="修改改用户信息">
+    <el-form :model="midForm" label-width="120px">
+      <el-form-item label="所属组">
+        <el-select v-model="midForm.ar_id" class="m-2">
+          <el-option v-for="v in selectData" :key="v.id" :label="v.name" :value="v.id" />
+        </el-select>
+      </el-form-item>
+      <el-form-item label="中文名称">
+        <el-input v-model="midForm.name_real" />
+      </el-form-item>
+      <el-form-item label="登录名称">
+        <el-input v-model="midForm.name_login" />
+      </el-form-item>
+      <el-form-item label="用户电话">
+        <el-input v-model="midForm.phone" />
+      </el-form-item>
+      <el-form-item label="用户邮箱">
+        <el-input v-model="midForm.email" />
+      </el-form-item>
+
+    </el-form>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button type="primary" @click="mid(midForm)">确认修改</el-button>
+      </span>
+    </template>
+  </el-dialog>
 </template>
 
 <script setup>
@@ -107,12 +126,16 @@ const addBoxReset = () => {
   addForm.value = {};
   addForm.value.parent_id = 1;
 };
+const midForm = ref({})
+const isMidBox = ref(false)
 const midBox = (obj) => {
-  console.log(obj);
+  midForm.value = obj;
+  isMidBox.value = true
 };
 const mid = (data) => {
   mangeruser("mangerUser/user/mid", data).then((res) => {
     if (res.code == 200) {
+      isMidBox.value = false
       getMangerUser();
     }
   });
@@ -134,7 +157,13 @@ const add = () => {
 };
 
 const del = (obj) => {
-  console.log(obj);
+  mangeruser("mangerUser/user/del", { id: obj.id }).then((res) => {
+    if (res.code == 200) {
+      isAddBox.value = false;
+      addBoxReset();
+      getMangerUser();
+    }
+  });
 };
 </script>
 <script>
