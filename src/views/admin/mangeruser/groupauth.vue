@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-11-15 11:06:19
- * @LastEditTime: 2023-02-13 16:25:08
+ * @LastEditTime: 2023-04-10 16:50:42
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\mangeruser\groupauth.vue
@@ -10,8 +10,7 @@
 <template>
   <el-dialog v-model="isAddBox" title="添加组信息">
     <el-tree :key="treeNum" ref="refTree" :default-checked-keys="selectData" @check-change="authChang" :data="navList"
-      show-checkbox node-key="id" :default-expand-all="false" :expand-on-click-node="false"
-      :props="{ label: 'name' }" />
+      show-checkbox node-key="id" :default-expand-all="false" :expand-on-click-node="false" :props="{ label: 'name' }" />
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="addBoxReset">重置信息</el-button>
@@ -63,16 +62,23 @@ const midBox = (obj) => {
   treeNum.value++
   isAddBox.value = true;
 };
+let other_arr_new = [];
 const authChang = () => {
-  let datas = refTree.value.getCheckedNodes()
   let new_datas = [];
+  let datas = refTree.value.getCheckedNodes()
+  let other = refTree.value.getHalfCheckedKeys();
+  let other_arr = [];
+  other.forEach(v => {
+    other_arr.push(v)
+  });
   datas.forEach(v => {
     new_datas.push(v.id)
   });
+  other_arr_new = Array.from(new Set(other_arr))
   selectData.value = Array.from(new Set(new_datas));
 }
 const add = () => {
-  mangeruser("mangerUser/groupAuth/mid", { id: id.value, auth: selectData.value.join(',') }).then((res) => {
+  mangeruser("mangerUser/groupAuth/mid", { id: id.value, auth: selectData.value.join(','), auth_other: other_arr_new.join(',') }).then((res) => {
     if (res.code == 200) {
       isAddBox.value = false;
       addBoxReset();

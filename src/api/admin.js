@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2022-11-14 16:06:27
- * @LastEditTime: 2023-02-10 16:21:51
+ * @LastEditTime: 2023-02-20 15:59:48
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\api\admin.js
@@ -12,25 +12,36 @@ import config from "../config/index";
 import qs from "qs";
 
 let url = config.req_url + 'tmpapi/admin/';
-
-export function system(action = '', data = {}, msgShow = true) {
+function common_fun(action = '', data = {}, msgShow = true) {
     http.msgShow = msgShow
-    return http.post(url + action, qs.stringify(data))
+    if (data.u == 1) {
+        let param = new FormData();
+        for (const key in data.file) {
+            param.append("file[]", data.file[key]['raw']);
+        }
+        for (const key in data) {
+            if (key != 'file') {
+                param.append(key, data[key])
+            }
+        }
+        return http.post(action, param, file);
+    } else {
+        return http.post(action, qs.stringify(data))
+    }
+}
+export function system(action = '', data = {}, msgShow = true) {
+
+    return common_fun(url + action, data, msgShow)
 }
 export function common(action = '', data = {}, msgShow = true) {
-    http.msgShow = msgShow
-    return http.post(url + action, qs.stringify(data))
+    return common_fun(url + action, data, msgShow)
 }
 export function mangeruser(action = '', data = {}, msgShow = true) {
-    http.msgShow = msgShow
-    return http.post(url + action, qs.stringify(data))
+    return common_fun(url + action, data, msgShow)
 }
 export function password(action = '', data = {}, msgShow = true) {
-    http.msgShow = msgShow
-    return http.post(url + action, qs.stringify(data));
+    return common_fun(url + action, data, msgShow)
 }
-
 export function info(action = '', data = {}, msgShow = true) {
-    http.msgShow = msgShow
-    return http.post(url + action, qs.stringify(data));
+    return common_fun(url + action, data, msgShow)
 }
