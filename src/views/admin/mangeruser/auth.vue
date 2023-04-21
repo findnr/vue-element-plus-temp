@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-11-15 11:06:19
- * @LastEditTime: 2023-04-11 09:36:18
+ * @LastEditTime: 2023-04-21 16:54:58
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\mangeruser\auth.vue
@@ -20,8 +20,7 @@
   </el-dialog>
   <div class="index mt-3">
     <el-table :data="tableData" style="width: 100%" border>
-      <el-table-column type="index" label="序号" width="180" />
-      <el-table-column type="index" label="序号" width="50" />
+      <el-table-column type="index" label="序号" width="80" />
       <el-table-column prop="name_login" label="登录名" width="180" />
       <el-table-column prop="name_real" label="真实名" width="180" />
       <el-table-column prop="phone" label="手机号" width="120" />
