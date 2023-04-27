@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2022-01-14 13:45:11
- * @LastEditTime: 2023-04-27 08:10:21
+ * @LastEditTime: 2023-04-27 08:18:38
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\plugins\elementplus\index.js
@@ -22,7 +22,6 @@ export function setupElementPlus(app) {
     Object.keys(Icons).forEach((it) => {
         app.component(it, Icons[it]);
     });
-
     app.config.globalProperties.$message = ElMessage;
 }
 
