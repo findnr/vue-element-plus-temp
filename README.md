@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2022-05-05 16:29:04
+ * @LastEditTime: 2023-05-04 14:30:03
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
@@ -136,5 +136,19 @@ plugins: [AutoImports()]
 import http from "../utils/axios"
 //这样设置就不会出弹框
 http.msgShow = false
+```
+### wangEditor编辑器 https://github.com/wangeditor-team/wangEditor
+```sh
+pnpm add @wangeditor/editor
+```
+### Markdown编辑器 https://github.com/imzbf/md-editor-v3
+```sh
+pnpm add md-editor-v3
+#使用语言、预览主题扩展库：
+pnpm add @vavt/md-editor-extension
+```
+### echart可视化图表库 https://echarts.apache.org/
+```sh
+pnpm add echarts --save
 ```
 

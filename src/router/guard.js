@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2022-01-18 11:39:30
- * @LastEditTime: 2022-01-19 09:58:45
+ * @LastEditTime: 2023-05-06 13:27:46
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\router\guard.js
@@ -21,9 +21,25 @@ export function setupGuard(router) {
     router.beforeEach((to, from) => {
         const is_auth = isAuth(to);
         if (is_auth) {
-            const is_token = getToken();
+            const pathName = to.fullPath.split('/')[1];
+            let is_token = null;
+            switch (pathName) {
+                case 'admin':
+                    is_token = getToken('adminToken');
+                    break;
+                case 'unit':
+                    is_token = getToken('unitToken');
+                    break;
+                case 'person':
+                    is_token = getToken('personToken');
+                case 'user':
+                    is_token = getToken('userToken');
+                case 'man':
+                    is_token = getToken('manToken');
+            }
+            console.log(is_token);
             if (!is_token) {
-                return { path: '/auth/login' }
+                return { path: '/auth/' + pathName }
             }
         }
     })

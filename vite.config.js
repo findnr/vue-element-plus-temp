@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 09:52:58
- * @LastEditTime: 2022-08-14 07:48:03
+ * @LastEditTime: 2023-05-04 14:51:57
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\vite.config.js
@@ -51,9 +51,15 @@ const builds = (url, dir) => {
           manualChunks(id) {
             if (id.includes('node_modules')) {
               let name = id.toString().split('node_modules/')[1].split('/')[1].toString();
-              if (name.includes('wangeditor') || name.includes('element-plus') || name.includes('xlsx'))
-                return md5(name);
-              // return md5(id.toString().split('node_modules/')[1].split('/')[1].toString().split('.')[1]);
+              if (name.includes('wangeditor') ||
+                name.includes('element-plus') ||
+                name.includes('xlsx') ||
+                name.includes('echarts') ||
+                name.includes('md-editor-v3')
+              )
+                // return md5(name);
+                // return md5(id.toString().split('node_modules/')[1].split('/')[1].toString().split('.')[1]);
+                return id.toString().split('node_modules/')[1];
             }
           }
         }
