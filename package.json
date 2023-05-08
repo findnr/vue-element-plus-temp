@@ -11,16 +11,19 @@
     "@element-plus/icons-vue": "^1.1.4",
     "@vavt/md-editor-extension": "^3.0.0",
     "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
+    "add": "^2.0.6",
     "axios": "^0.24.0",
     "echarts": "^5.4.2",
     "element-plus": "^2.3.4",
     "findnrjs": "^1.1.5",
-    "md-editor-v3": "^3.0.0",
+    "md-editor-v3": "^3.0.1",
     "pinia": "^2.0.35",
     "qs": "^6.11.1",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6",
-    "vuex": "^4.1.0"
+    "vuex": "^4.1.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.10.2",

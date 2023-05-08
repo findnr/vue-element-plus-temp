@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2023-05-04 14:30:03
+ * @LastEditTime: 2023-05-08 10:57:07
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
@@ -139,16 +139,26 @@ http.msgShow = false
 ```
 ### wangEditor编辑器 https://github.com/wangeditor-team/wangEditor
 ```sh
-pnpm add @wangeditor/editor
+pnpm add @wangeditor/editor --save
+pnpm add @wangeditor/editor-for-vue@next --save
 ```
+- 编辑器模板（CymWangEditor）
 ### Markdown编辑器 https://github.com/imzbf/md-editor-v3
 ```sh
 pnpm add md-editor-v3
 #使用语言、预览主题扩展库：
 pnpm add @vavt/md-editor-extension
 ```
+- 编辑器模板（CymMdEditor）
 ### echart可视化图表库 https://echarts.apache.org/
 ```sh
 pnpm add echarts --save
 ```
+### xlsx库，操作表格 https://github.com/SheetJS/sheetjs
+```sh
+pnpm add xlsx --save
+```
+- 导入数据的功能模板（XlsxToJson）,必须传一个getJson的方法，模板中有清楚文件重置表单方法，clean();
 
+### 模板
+- 方块展示数据（TitleNum）有两个属性title,num
