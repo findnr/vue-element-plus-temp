@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2023-05-08 10:57:07
+ * @LastEditTime: 2023-05-08 16:39:02
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
@@ -144,6 +144,8 @@ pnpm add @wangeditor/editor-for-vue@next --save
 ```
 - 编辑器模板（CymWangEditor）
 ### Markdown编辑器 https://github.com/imzbf/md-editor-v3
+### 支持公式的文档 https://katex.org/docs/supported.html
+### 绘图功能的文档 https://github.com/mermaid-js/mermaid
 ```sh
 pnpm add md-editor-v3
 #使用语言、预览主题扩展库：
