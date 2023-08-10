@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 09:52:58
- * @LastEditTime: 2023-05-04 14:51:57
+ * @LastEditTime: 2023-08-10 09:17:42
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\vite.config.js
@@ -38,6 +38,18 @@ const builds = (url, dir) => {
     },
     build: {
       outDir: dir,
+      terserOptions: {
+        compress: {
+          // warnings: false,
+          drop_console: true,  //打包时删除console
+          drop_debugger: true, //打包时删除 debugger
+          pure_funcs: ['console.log'],
+        },
+        output: {
+          // 去掉注释内容
+          comments: true,
+        },
+      },
       rollupOptions: {
         output: {
           plugins: [
@@ -57,9 +69,9 @@ const builds = (url, dir) => {
                 name.includes('echarts') ||
                 name.includes('md-editor-v3')
               )
-                // return md5(name);
-                // return md5(id.toString().split('node_modules/')[1].split('/')[1].toString().split('.')[1]);
-                return id.toString().split('node_modules/')[1];
+                return md5(name);
+              // return md5(id.toString().split('node_modules/')[1].split('/')[1].toString().split('.')[1]);
+              // return id.toString().split('node_modules/')[1];
             }
           }
         }
