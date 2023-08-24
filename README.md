@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2023-05-08 16:39:02
+ * @LastEditTime: 2023-08-24 16:39:37
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
@@ -164,3 +164,10 @@ pnpm add xlsx --save
 
 ### 模板
 - 方块展示数据（TitleNum）有两个属性title,num
+### 新增使用swoole进行本地测试，支持windows,linux。只须要在swoole官方下载swoole-cli运行就可以了
+```sh
+windows: swoole-cli.exe http.php
+linux: swoole-cli http
+#然后打开浏览器输入：http://127.0.0.1:9501
+#这样就可以访问到打包dist目录的文件内容
+```
