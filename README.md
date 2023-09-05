@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2023-08-24 16:39:37
+ * @LastEditTime: 2023-09-05 11:29:23
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
@@ -161,7 +161,10 @@ pnpm add echarts --save
 pnpm add xlsx --save
 ```
 - 导入数据的功能模板（XlsxToJson）,必须传一个getJson的方法，模板中有清楚文件重置表单方法，clean();
-
+### 使用vueuse库 
+```sh
+pnpm add @vueuse/core --save
+```
 ### 模板
 - 方块展示数据（TitleNum）有两个属性title,num
 ### 新增使用swoole进行本地测试，支持windows,linux。只须要在swoole官方下载swoole-cli运行就可以了
