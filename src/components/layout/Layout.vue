@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-26 14:53:32
- * @LastEditTime: 2022-04-25 20:38:02
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2023-09-05 11:20:09
+ * @LastEditors: 程英明
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \vue-element-plus-temp\src\components\layout\Layout.vue
 -->
@@ -23,7 +23,7 @@
   </el-container>
   <el-container v-else-if="navbarType === '顶部菜单混合模式'">
     <el-header>
-      <navbar :showLogo="true" :navbarInfo="navbarInfo" ></navbar>
+      <navbar :showLogo="true" :navbarInfo="navbarInfo"></navbar>
     </el-header>
     <el-container>
       <el-aside :width="sidebarWidth">
@@ -71,10 +71,11 @@
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
   menuList: Array,
   navbarInfo: Object,
-  titleName:String,
+  titleName: String,
+  widthPx: String,
 });
 const route = useRoute();
 const store = useStore();
@@ -96,7 +97,7 @@ const isCollapse = computed(() => {
 
 // 侧边栏宽度
 const sidebarWidth = computed(() => {
-  return store.state.isCollapse ? "64px" : "200px";
+  return store.state.isCollapse ? "64px" : props.widthPx;
 });
 </script>
 

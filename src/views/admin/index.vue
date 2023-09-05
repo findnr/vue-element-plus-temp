@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-02-25 13:31:06
- * @LastEditTime: 2023-04-27 09:08:24
+ * @LastEditTime: 2023-09-05 11:21:44
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\index.vue
@@ -9,7 +9,7 @@
 -->
 <template>
   <div class="index h-screen">
-    <layout :menuList="menuList" :navbarInfo="navbarInfo" titleName="后台管理系统">
+    <layout :menuList="menuList" :navbarInfo="navbarInfo" titleName="后台管理系统" widthPx="200px">
       <template #home>
         <router-view></router-view>
       </template>
