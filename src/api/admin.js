@@ -11,7 +11,7 @@ import http from "../utils/axios"
 import config from "../config/index";
 import qs from "qs";
 
-let url = config.req_url + 'tmpapi/admin/';
+let url = config.req_url + 'test/admin/';
 function common_fun(action = '', data = {}, msgShow = true) {
     http.msgShow = msgShow
     if (data.u == 1) {

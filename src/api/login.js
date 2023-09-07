@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2022-02-21 10:21:12
- * @LastEditTime: 2022-10-12 15:34:33
+ * @LastEditTime: 2023-09-07 09:59:48
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\api\login.js
@@ -11,7 +11,7 @@ import http from "../utils/axios"
 import config from "../config/index";
 import qs from "qs";
 
-let url = config.req_url + 'tmpapi/';
+let url = config.req_url + 'test/';
 
 export function admin(action = '', data = {}, msgShow = true) {
     http.msgShow = msgShow

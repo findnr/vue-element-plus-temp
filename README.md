@@ -1,12 +1,16 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2023-09-05 11:29:23
+ * @LastEditTime: 2023-09-07 11:00:58
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
  * QQ:504875043@qq.com
 -->
+# 测试地址
+请大家不要更改管理员帐号和密码：帐号：admin 密码：123456
+- 后台测试：https://thinkphpvue.cym504875043.repl.co/#/auth/admin
+- 前台测试：正在开中！！！
 # Vue 3 + Vite
 vit+vue3 使用element-plus创建的模板，包含axios ,vue-router4,vuex4,等常用组件，构建一个模板，方便使用开发。只须要 git clone https://github.com/findnr/vue-element-plus-temp.git 。再使用npm install 。就可以进行开发了。文件里面已经构建好了route文件，vuex文件，axios封装的接口等，具体的封装可以看项目的创建流程。
 ```shell

@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 09:52:58
- * @LastEditTime: 2023-08-10 09:17:42
+ * @LastEditTime: 2023-09-07 09:43:24
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\vite.config.js
@@ -60,20 +60,20 @@ const builds = (url, dir) => {
           entryFileNames: `assets/[name].${timestamp}.js`,
           chunkFileNames: `assets/[name].${timestamp}.js`,
           assetFileNames: `assets/[name].${timestamp}.[ext]`,
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              let name = id.toString().split('node_modules/')[1].split('/')[1].toString();
-              if (name.includes('wangeditor') ||
-                name.includes('element-plus') ||
-                name.includes('xlsx') ||
-                name.includes('echarts') ||
-                name.includes('md-editor-v3')
-              )
-                return md5(name);
-              // return md5(id.toString().split('node_modules/')[1].split('/')[1].toString().split('.')[1]);
-              // return id.toString().split('node_modules/')[1];
-            }
-          }
+          // manualChunks(id) {
+          //   if (id.includes('node_modules')) {
+          //     let name = id.toString().split('node_modules/')[1].split('/')[1].toString();
+          //     if (name.includes('wangeditor') ||
+          //       name.includes('element-plus') ||
+          //       name.includes('xlsx') ||
+          //       name.includes('echarts') ||
+          //       name.includes('md-editor-v3')
+          //     )
+          //       return md5(name);
+          //     // return md5(id.toString().split('node_modules/')[1].split('/')[1].toString().split('.')[1]);
+          //     // return id.toString().split('node_modules/')[1];
+          //   }
+          // }
         }
       }
     },
