@@ -1,14 +1,14 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2023-09-07 11:00:58
+ * @LastEditTime: 2023-09-11 11:06:29
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
  * QQ:504875043@qq.com
 -->
 # 测试地址
-请大家不要更改管理员帐号和密码：帐号：admin 密码：123456
+请大家不要更改管理员帐号和密码：帐号：admin 密码：123456 （后台接口github的地址：https://github.com/findnr/thinkphp_api）
 - 后台测试：https://thinkphpvue.cym504875043.repl.co/#/auth/admin
 - 前台测试：正在开中！！！
 # Vue 3 + Vite
