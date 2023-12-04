@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2023-09-11 11:08:05
+ * @LastEditTime: 2023-11-24 15:12:08
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
@@ -141,10 +141,9 @@ import http from "../utils/axios"
 //这样设置就不会出弹框
 http.msgShow = false
 ```
-### wangEditor编辑器 https://github.com/wangeditor-team/wangEditor
+### 编辑器 https://github.com/vueup/vue-quill
 ```sh
-pnpm add @wangeditor/editor --save
-pnpm add @wangeditor/editor-for-vue@next --save
+pnpm add quill
 ```
 - 编辑器模板（CymWangEditor）
 ### Markdown编辑器 https://github.com/imzbf/md-editor-v3
@@ -165,12 +164,17 @@ pnpm add echarts --save
 pnpm add xlsx --save
 ```
 - 导入数据的功能模板（XlsxToJson）,必须传一个getJson的方法，模板中有清楚文件重置表单方法，clean();
+### 表格布局 https://vxetable.cn/#/table/start/install
+```sh
+pnpm add xe-utils vxe-table
+```
 ### 使用vueuse库 
 ```sh
 pnpm add @vueuse/core --save
 ```
 ### 模板
 - 方块展示数据（TitleNum）有两个属性title,num
+- 查看图片和PDF (SeeFile) 有一个属性url
 ### 新增使用swoole进行本地测试，支持windows,linux。只须要在swoole官方下载swoole-cli运行就可以了
 ```sh
 windows: swoole-cli.exe http.php
