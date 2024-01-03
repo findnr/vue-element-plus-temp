@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2022-11-14 16:06:27
- * @LastEditTime: 2023-02-20 15:59:48
+ * @LastEditTime: 2023-12-29 16:18:29
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\api\admin.js
@@ -24,7 +24,7 @@ function common_fun(action = '', data = {}, msgShow = true) {
                 param.append(key, data[key])
             }
         }
-        return http.post(action, param, file);
+        return http.post(action, param);
     } else {
         return http.post(action, qs.stringify(data))
     }
@@ -44,4 +44,7 @@ export function password(action = '', data = {}, msgShow = true) {
 }
 export function info(action = '', data = {}, msgShow = true) {
     return common_fun(url + action, data, msgShow)
+}
+export function upload(action = '', data = {}, msgShow = true) {
+    return common_fun(url + 'upload/' + action, data, msgShow)
 }

@@ -11,6 +11,8 @@
 const config = {}
 //配制请求URL
 config.req_url = process.env.NODE_ENV == 'development' ? 'http://1api.gzwea.com/' : 'https://thinkphpapi.cym504875043.repl.co/';
+//配制静态文件地址
+config.file_url = process.env.NODE_ENV == 'development' ? 'http://1api.gzwea.com/storage/' : 'https://thinkphpapi.cym504875043.repl.co/storage/';
 //配制上传文件时带的头信息
 config.upload_file_header = { "Content-Type": "multipart/form-data" };
 export default config;
