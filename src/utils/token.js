@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-12-01 15:02:58
- * @LastEditTime: 2022-10-20 16:13:11
+ * @LastEditTime: 2024-01-03 21:53:59
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\utils\token.js
@@ -12,7 +12,6 @@ export function getToken(name = 'token') {
 }
 
 export function setToken(obj) {
-    console.log(obj)
     for (const key in obj) {
         localStorage.setItem(key, obj[key]);
     }

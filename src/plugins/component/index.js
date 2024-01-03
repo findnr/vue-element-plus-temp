@@ -8,7 +8,7 @@
  * QQ:504875043@qq.com
  */
 export function registComponents(app) {
-    const components = import.meta.globEager('../../components/**/*.vue')
+    const components = import.meta.glob('../../components/**/*.vue', { eager: true })
     Object.keys(components).forEach((it) => {
         const component = components[it]
         if (!app.component(component.default.name || toHump(getComponentName(it)))) {

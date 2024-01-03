@@ -8,7 +8,7 @@
  * QQ:504875043@qq.com
  */
 
-const views = import.meta.globEager('../views/**/*.vue');
+const views = import.meta.glob('../views/**/*.vue', { eager: true });
 const routes = [];
 function getRouter() {
     const views_obj = Object.entries(views)
@@ -54,11 +54,11 @@ function getRouter() {
                             route.name = children_name.join('-')
                             route.children = []
                             const aaa = '../views/' + children_name.join('/') + '/index.vue'
-                            const com_index = views_obj.findIndex(function(v){
+                            const com_index = views_obj.findIndex(function (v) {
                                 return v[0] == aaa;
                             })
-                            if(com_index != -1){
-                                route.component =views_obj[com_index][1].default;
+                            if (com_index != -1) {
+                                route.component = views_obj[com_index][1].default;
                             }
                             tmp_routes.push(route);
                             is_num = tmp_routes.length - 1
@@ -71,11 +71,11 @@ function getRouter() {
                             route.name = children_name.join('-')
                             route.children = []
                             const aaa = '../views/' + children_name.join('/') + '/index.vue'
-                            const com_index = views_obj.findIndex(function(v){
+                            const com_index = views_obj.findIndex(function (v) {
                                 return v[0] == aaa;
                             })
-                            if(com_index != -1){
-                                route.component =views_obj[com_index][1].default;
+                            if (com_index != -1) {
+                                route.component = views_obj[com_index][1].default;
                             }
                             tmp_routes.push(route);
                             is_num = tmp_routes.length - 1
