@@ -29,6 +29,10 @@ const AutoImports = () => {
 // 生产模式
 const builds = (url, dir) => {
   return defineConfig({
+    define: {
+      // enable hydration mismatch details in production build
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'true'
+    },
     base: url,
     plugins: [vue(), svgLoader('/src/assets/svg/'), AutoImports(), viteCompression()],
     server: {

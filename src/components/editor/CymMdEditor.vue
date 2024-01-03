@@ -39,7 +39,7 @@ const onUploadImg=()=>{
 const getContent=()=>{
     return {textRaw:textRaw.value,html:html.value}
 }
-defineExpose([getContent]);
+defineExpose({getContent});
 watch(
     ()=>props.oldText,
     (n, o) => {
