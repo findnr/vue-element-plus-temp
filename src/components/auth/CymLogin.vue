@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-01-18 14:03:01
- * @LastEditTime: 2023-09-07 10:50:01
+ * @LastEditTime: 2024-01-03 20:39:15
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\components\auth\CymLogin.vue
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="h-full w-1/2 bg-[#529b2e] rounded-r-lg">
-                    <div class="p-2 pt-4 text-gray-200 text-[20px] animate-bounce">
+                    <div class="p-2 pt-4 text-gray-200 text-[20px]">
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-red-300"></span>
                         温馨提示
                     </div>

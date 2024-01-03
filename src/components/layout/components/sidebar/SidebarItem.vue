@@ -17,7 +17,7 @@
     <sidebar-item v-for="inner in item.children" :key="inner.menuId" :item="inner"></sidebar-item>
   </el-sub-menu>
   <el-menu-item :index="item.menuId" v-else @click="handleMenu(item)">
-    <el-icon>
+    <el-icon v-if="item.icon != ''">
       <component :is="item.icon" />
     </el-icon>
     <span v-if="collapse">{{ item.menuName }}</span>

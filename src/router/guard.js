@@ -37,7 +37,6 @@ export function setupGuard(router) {
                 case 'man':
                     is_token = getToken('manToken');
             }
-            console.log(is_token);
             if (!is_token) {
                 return { path: '/auth/' + pathName }
             }

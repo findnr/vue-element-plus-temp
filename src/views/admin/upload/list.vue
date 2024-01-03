@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-11-15 11:06:19
- * @LastEditTime: 2024-01-03 07:40:07
+ * @LastEditTime: 2024-01-03 17:01:04
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\upload\list.vue
@@ -43,6 +43,8 @@
             >查看下载</el-button
           >
           <el-button @click="del(scope.row)" size="small" type="danger">删除</el-button>
+          <el-button @click="copyContent(scope.row)" size="small" type="warning">复制链接</el-button>
+         
         </template>
       </el-table-column>
     </el-table>
@@ -165,10 +167,19 @@ const change = (n) => {
 };
 const url=ref('');
 const refSeeFile=ref(null)
-const seeBox = (n) => {
-  url.value=cymconfig.file_url+n.path
+const seeBox = (obj) => {
+  url.value=cymconfig.file_url+obj.path
   refSeeFile.value.show();
 }
+const copyContent = async (obj) => {
+  let url=cymconfig.file_url+obj.path;
+    try {
+      await navigator.clipboard.writeText(url);
+      alert('复制成功')
+    } catch (err) {
+      alert('复制失败')
+    }
+  }
 </script>
 <script>
 export default { route: { meta: { auth: true } } };

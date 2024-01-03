@@ -11,7 +11,10 @@ export function registComponents(app) {
     const components = import.meta.globEager('../../components/**/*.vue')
     Object.keys(components).forEach((it) => {
         const component = components[it]
-        app.component(component.default.name || toHump(getComponentName(it)), component.default)
+        if (!app.component(component.default.name || toHump(getComponentName(it)))) {
+            app.component(component.default.name || toHump(getComponentName(it)), component.default)
+        }
+
     })
 }
 function toHump(str) {

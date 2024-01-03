@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-01-18 14:03:01
- * @LastEditTime: 2023-09-07 10:50:21
+ * @LastEditTime: 2024-01-03 19:31:22
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\components\auth\CymV1AdminLogin.vue
@@ -78,7 +78,6 @@ const reset = () => {
 };
 
 const login = () => {
-    console.log(forms)
     for (const key in forms) {
         if (forms[key] == "") {
             ElMessage.success({
