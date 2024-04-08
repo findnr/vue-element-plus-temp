@@ -164,7 +164,7 @@ pnpm add echarts --save
 pnpm add xlsx --save
 ```
 - 导入数据的功能模板（XlsxToJson）,必须传一个getJson的方法，模板中有清楚文件重置表单方法，clean();
-### 表格布局 https://vxetable.cn/#/table/start/install
+### 表格布局 https://vxetable.cn/#/table/start/install 常用工具：https://github.com/x-extends/xe-utils
 ```sh
 pnpm add xe-utils vxe-table
 ```

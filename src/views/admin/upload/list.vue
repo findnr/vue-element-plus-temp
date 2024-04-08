@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-11-15 11:06:19
- * @LastEditTime: 2024-01-03 17:01:04
+ * @LastEditTime: 2024-01-17 10:24:11
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\upload\list.vue
@@ -32,8 +32,16 @@
     <el-table :data="tableData.list" style="width: 100%" row-key="id" border>
       <el-table-column type="index" label="序号" :index="indexMethod" width="80" />
       <el-table-column prop="name" label="文件名称" />
-      <el-table-column prop="path" label="地址" />
-      <el-table-column prop="create_time" label="创建时间" />
+      <el-table-column prop="path" label="地址">
+        <template #default="scope">
+          {{cymconfig.file_url+scope.row.path}}
+        </template>
+      </el-table-column>
+      <el-table-column label="创建时间">
+        <template #default="scope">
+          {{Time.format(scope.row.create_time)}}
+        </template>
+      </el-table-column>
       <el-table-column label="操作">
         <template #default="scope">
           <el-button @click="midBox(scope.row)" size="small" type="success"
@@ -64,6 +72,9 @@
       <el-form-item label="文件名称">
         <el-input v-model="midForm.name" />
       </el-form-item>
+      <el-form-item label="获取名">
+        <el-input v-model="midForm.get_name" />
+      </el-form-item>
       <el-form-item label="父级名称">
         <el-select v-model="midForm.parent_id" class="m-2">
           <el-option label="无" :value="0" />
@@ -84,6 +95,8 @@
 import { ref } from 'vue';
 import { upload } from "../../../api/admin";
 import cymconfig from "../../../config"
+import { useDateFormat } from '@vueuse/core'
+import {Time} from "findnrjs"
 
 const refFileNum = ref(0);
 const refFile = ref(null);

@@ -1,7 +1,7 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-11-15 11:06:19
- * @LastEditTime: 2023-12-29 10:56:10
+ * @LastEditTime: 2024-01-17 10:40:37
  * @LastEditors: 程英明
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\upload\type.vue
@@ -17,6 +17,9 @@
     <el-form :model="addForm">
       <el-form-item label="名称">
         <el-input v-model="addForm.name" />
+      </el-form-item>
+      <el-form-item label="获取名">
+        <el-input v-model="addForm.get_name" />
       </el-form-item>
       <el-form-item label="父级名称">
         <el-select v-model="addForm.parent_id" class="m-2">
@@ -36,7 +39,12 @@
     <el-table :data="tableData" style="width: 100%" row-key="id" border>
       <el-table-column type="index" label="序号" width="180" />
       <el-table-column prop="name" label="名称" />
-      <el-table-column prop="create_time" label="创建时间" />
+      <el-table-column prop="get_name" label="获取名" />
+      <el-table-column label="创建时间">
+        <template #default="scope">
+          {{Time.format(scope.row.create_time)}}
+        </template>
+      </el-table-column>
       <el-table-column label="操作">
         <template #default="scope">
           <el-button @click="midBox(scope.row)" size="small" type="success"
@@ -52,6 +60,9 @@
     <el-form :model="midForm">
       <el-form-item label="组名称">
         <el-input v-model="midForm.name" />
+      </el-form-item>
+      <el-form-item label="获取名">
+        <el-input v-model="midForm.get_name" />
       </el-form-item>
       <el-form-item label="父级名称">
         <el-select v-model="midForm.parent_id" class="m-2">
@@ -69,6 +80,7 @@
 </template>
 
 <script setup>
+import {Time} from "findnrjs"
 import { upload } from "../../../api/admin";
 
 const tableData = ref([]);
