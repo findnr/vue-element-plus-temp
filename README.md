@@ -19,6 +19,11 @@ cd vue-element-plus-temp
 npm install
 npm run dev
 ```
+#### 20240421更新(更新了所有最新的依赖)
+```sh
+pnpm up --latest
+```
+- import MdEditor from 'md-editor-v3'更改了成：import { MdEditor } from 'md-editor-v3'
 # 此项目创建的流程如下 （后边的安装与操作都不须要手动操作，npm install 就已经安装好插件，修改的文件已经修改好了。）
 ## 安装vue-router@4
 ```shell
