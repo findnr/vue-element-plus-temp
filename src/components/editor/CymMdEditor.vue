@@ -14,10 +14,15 @@
   
 <script setup>
 import { ref } from 'vue';
-import { MdEditor } from 'md-editor-v3';
+import { MdEditor,config } from 'md-editor-v3';
 import 'md-editor-v3/lib/style.css';
 const props=defineProps({
     oldText:String,
+})
+config({
+    markdownItPlugins(plugins) {
+        return plugins.filter((p) => p.type !== 'xss');
+    }
 })
 const text = ref('');
 const html=ref('');
