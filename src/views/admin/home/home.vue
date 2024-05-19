@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2022-02-26 18:06:02
- * @LastEditTime: 2023-12-28 11:01:03
- * @LastEditors: 程英明
+ * @LastEditTime: 2024-05-18 17:35:27
+ * @LastEditors: findnr
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \vue-element-plus-temp\src\views\admin\home\home.vue
 -->
@@ -25,10 +25,12 @@
 </template>
 
 <script setup>
+const { appContext } = getCurrentInstance()
 const oldText=ref("");
 setTimeout(() =>{
   oldText.value="# fdsafdsa";
 },2000)
+console.log()
 </script>
 
 <style scoped lang="scss">

@@ -1,8 +1,8 @@
 /*
  * @Author: 程英明
  * @Date: 2022-01-14 13:45:11
- * @LastEditTime: 2023-04-27 08:18:38
- * @LastEditors: 程英明
+ * @LastEditTime: 2024-05-18 17:36:02
+ * @LastEditors: findnr
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\plugins\elementplus\index.js
  * QQ:504875043@qq.com
@@ -22,6 +22,10 @@ export function setupElementPlus(app) {
     Object.keys(Icons).forEach((it) => {
         app.component(it, Icons[it]);
     });
-    app.config.globalProperties.$message = ElMessage;
+    // app.config.globalProperties.$message = ElMessage;
+    //全局注册
+    app.provide('$message', ElMessage)
+    //页面中使用方式
+    // inject('$message')
 }
 
