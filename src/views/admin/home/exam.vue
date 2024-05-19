@@ -1,9 +1,17 @@
+<!--
+ * @Author: findnr
+ * @Date: 2024-05-18 17:40:41
+ * @LastEditors: findnr
+ * @LastEditTime: 2024-05-19 09:54:46
+ * @Description: 
+-->
 <template>
     <div class="box">
         <div class="top">
             <el-input v-model="tmp" style="width: 600px" placeholder="Please input" show-word-limit type="textarea" @change="onChange"  />
             <span class=" w-[200px] inline-block text-center">总分：{{score.radio+score.alternative+score.judge+score.fill}}</span>
             <span><el-button type="success" @click="onCopy" round>复制内容</el-button></span>
+            <span>{{score}}</span>
         </div>
         <ExamTmpShow :content="content" :key="num" :score="score"></ExamTmpShow>
     </div>
