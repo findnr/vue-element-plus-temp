@@ -1,15 +1,15 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-02-28 14:43:45
- * @LastEditTime: 2023-02-10 10:44:05
- * @LastEditors: 程英明
+ * @LastEditTime: 2024-07-26 09:37:12
+ * @LastEditors: findnr
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\views\admin\user\loginout.vue
  * QQ:504875043@qq.com
 -->
 <template>
   <div class="index justify-center text-current w-full flex justify-items-center content-center m-[20px]">
-    <el-button class="w-[80px]" style="height:80px;" type="warning" circle>
+    <el-button style="width:80px;height:80px;" type="warning" circle>
       <el-icon class="el-icon" size="50px">
         <Delete />
       </el-icon>
