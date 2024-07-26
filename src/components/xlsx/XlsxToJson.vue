@@ -1,8 +1,8 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-06-17 11:37:04
- * @LastEditTime: 2023-05-08 09:18:31
- * @LastEditors: 程英明
+ * @LastEditTime: 2024-07-26 10:32:54
+ * @LastEditors: findnr
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\components\xlsx\XlsxToJson.vue
  * QQ:504875043@qq.com
@@ -35,9 +35,18 @@
 import { UploadFilled } from '@element-plus/icons-vue'
 import * as xlsx from "xlsx"
 const props = defineProps({
-    header: Array
+    header: {
+        type:Array,
+        default:undefined,
+        required:false,
+    },
+    range:{
+        type:Number,
+        default:1,
+        required:false,
+    }
 })
-const { header } = props
+const { header,range } = props
 const uploadNum = ref(0)
 const emits = defineEmits(['getJson'])
 const fileList = ref([])
@@ -61,7 +70,7 @@ const getData = async (file) => {
     let dataBinary = await readFile(file.raw)
     let workBook = xlsx.read(dataBinary, { type: 'binary', cellDates: true })
     let workSheet = workBook.Sheets[workBook.SheetNames[0]]
-    const data = xlsx.utils.sheet_to_json(workSheet, { header, range: 1 })
+    const data = xlsx.utils.sheet_to_json(workSheet, { header, range })
     let s = JSON.stringify(data)
     s = s.replace(/(\\t|\\r|\\n|\\s|\\b|\\f|\\u|' ')/gi, '')
     s = s.split(" ").join("");
@@ -71,7 +80,7 @@ const getData = async (file) => {
 const readFile = (file) => {
     return new Promise(resolve => {
         let reader = new FileReader()
-        reader.readAsBinaryString(file)
+        reader.readAsArrayBuffer(file)
         reader.onload = ev => {
             resolve(ev.target.result)
         }
