@@ -1,7 +1,7 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 10:16:47
- * @LastEditTime: 2024-07-25 15:03:16
+ * @LastEditTime: 2024-07-30 14:01:11
  * @LastEditors: findnr
  * @Description:
  * @FilePath: \vue-element-plus-temp\src\config\index.js
@@ -16,4 +16,6 @@ config.req_url = process.env.NODE_ENV == 'development' ? 'https://demoapi.findbo
 config.file_url = process.env.NODE_ENV == 'development' ? 'https://demoapi.findbox.icu/storage/' : protocol_type+'//demoapi.findbox.icu/storage/';
 //配制上传文件时带的头信息
 config.upload_file_header = { "Content-Type": "multipart/form-data" };
+//接口app名称，用于拼接接口应用
+config.app_name='test';
 export default config;
