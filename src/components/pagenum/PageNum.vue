@@ -2,7 +2,7 @@
  * @Author: findnr
  * @Date: 2024-09-26 16:00:41
  * @LastEditors: findnr
- * @LastEditTime: 2024-09-27 09:20:28
+ * @LastEditTime: 2024-09-27 10:38:22
  * @Description: 
 -->
 <template>
@@ -26,9 +26,10 @@ defineProps({
 })
 const emits=defineEmits(['pageSendData'])
 const pageSize=ref(10)
-const where=reactive({page:0,size:pageSize.value})
+const where=reactive({page:0,num:0})
 const change=(obj)=>{
     where.page=obj;
+    where.num=pageSize.value
     emits('pageSendData',where);
 }
 </script>
