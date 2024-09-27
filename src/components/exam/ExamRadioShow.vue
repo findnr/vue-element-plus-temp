@@ -10,11 +10,11 @@
         <div class="box" v-if="v.qt_id == 1">
             <h5>{{k+1}}、{{v.title.q_title}}</h5>
             <el-radio-group v-model="v.user_answer" class="ml-4">
-                <p v-for="(vone,kone) in v.all_answer" style="width:100%;">
+                <p v-for="(vone,kone) in v.all_answer" style="width:100%;" :key="kone">
                     <el-radio :value="anserShow[kone]" size="large" >{{anserShow[kone]}}、{{vone.q_content}}</el-radio>
                 </p><br />
             </el-radio-group>
-            <p v-for="(vone,kone) in v.all_answer">
+            <p v-for="(vone,kone) in v.all_answer" :key="kone">
                 <p v-if="vone.correct_answer == 1">
                     <p>正确答案：{{anserShow[kone]}}</p>
                     <p v-if="anserShow[kone] == v.user_answer" class=" text-green-500" > 正确</p>

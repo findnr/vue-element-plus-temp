@@ -1,8 +1,8 @@
 <!--
  * @Author: 程英明
  * @Date: 2021-11-25 09:02:21
- * @LastEditTime: 2023-11-24 15:12:08
- * @LastEditors: 程英明
+ * @LastEditTime: 2024-09-27 09:33:43
+ * @LastEditors: findnr
  * @Description: 
  * @FilePath: \vue-element-plus-temp\README.md
  * QQ:504875043@qq.com
@@ -150,10 +150,7 @@ http.msgShow = false
 ```sh
 pnpm add quill
 ```
-- 编辑器模板（CymWangEditor）
-### Markdown编辑器 https://github.com/imzbf/md-editor-v3
-### 支持公式的文档 https://katex.org/docs/supported.html
-### 绘图功能的文档 https://github.com/mermaid-js/mermaid
+- 编辑器模板（CymQuillEditor）
 ```sh
 pnpm add md-editor-v3
 #使用语言、预览主题扩展库：
@@ -178,8 +175,12 @@ pnpm add xe-utils vxe-table
 pnpm add @vueuse/core --save
 ```
 ### 模板
-- 方块展示数据（TitleNum）有两个属性title,num
-- 查看图片和PDF (SeeFile) 有一个属性url
+- 方块展示数据（TitleNum）有两个属性title,num (box/)
+- 查看图片和PDF (SeeFile) 有一个属性url (box/)
+- 文件上传：UploadFile (box/)
+- 时间相关：TwoTime Onetime (time/)
+- 页码相关：PageNum (pagenum/)
+- 读取摄像头: LocalCam (video/)
 ### 新增使用swoole进行本地测试，支持windows,linux。只须要在swoole官方下载swoole-cli运行就可以了
 ```sh
 windows: swoole-cli.exe http.php

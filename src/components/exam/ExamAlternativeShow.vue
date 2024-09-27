@@ -10,7 +10,7 @@
         <div class="box" v-if="v.qt_id == 2">
             <h5>{{k+1}}、{{v.title.q_title}}</h5>
             <el-checkbox-group v-model="v.user_answer">
-                <p v-for="(vone,kone) in v.all_answer" style="width:100%;">
+                <p v-for="(vone,kone) in v.all_answer" style="width:100%;" :key="kone">
                     <el-checkbox :label="anserShow[kone]+'、'+vone.q_content" :value="anserShow[kone]" />
                 </p>
             </el-checkbox-group>
