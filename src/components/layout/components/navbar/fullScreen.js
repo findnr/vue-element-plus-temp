@@ -25,7 +25,7 @@ export const changeFullScreen = (data) => {
 
 export const listenerEvent = (fn, data) => {
   document.onkeydown = (event) => {
-    if (event.keyCode == 122) {
+    if (event.code == 'F11') {
       event.preventDefault()
       changeFullScreen(data)
     }
