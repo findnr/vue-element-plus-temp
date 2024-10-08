@@ -10,16 +10,16 @@
         <div class="box" v-if="v.qt_id == 2">
             <h5>{{k+1}}、{{v.title.q_title}}</h5>
             <el-checkbox-group v-model="v.user_answer">
-                <p v-for="(vone,kone) in v.all_answer" style="width:100%;" :key="kone">
+                <div v-for="(vone,kone) in v.all_answer" style="width:100%;" :key="kone">
                     <el-checkbox :label="anserShow[kone]+'、'+vone.q_content" :value="anserShow[kone]" />
-                </p>
+                </div>
             </el-checkbox-group>
-            <p>
-                <p>正确答案：{{isInfo[k].answer}}</p>
-                <p v-if="isInfo[k].isOk" class=" text-green-500" > 正确：{{isInfo[k].score}}</p>
-                <p v-else class=" text-red-600">错误</p>
-            </p>
-            <p>用户答案：{{v.user_answer}}</p>
+            <div>
+                <div>正确答案：{{isInfo[k].answer}}</div>
+                <div v-if="isInfo[k].isOk" class=" text-green-500" > 正确：{{isInfo[k].score}}</div>
+                <div v-else class=" text-red-600">错误</div>
+            </div>
+            <div>用户答案：{{v.user_answer}}</div>
         </div>
     </div>
 </template>

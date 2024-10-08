@@ -10,18 +10,18 @@
         <div class="box" v-if="v.qt_id == 3">
             <h5>{{k+1}}、{{v.title.q_title}}</h5>
             <el-radio-group v-model="v.user_answer" class="ml-4">
-                <p v-for="(vone,kone) in v.all_answer" style="width:100%;" :key="kone">
+                <div v-for="(vone,kone) in v.all_answer" style="width:100%;" :key="kone">
                     <el-radio :value="anserShow[kone]" size="large" >{{anserShow[kone]}}、{{vone.q_content}}</el-radio>
-                </p><br />
+                </div><br />
             </el-radio-group>
-            <p v-for="(vone,kone) in v.all_answer" :key="kone">
-                <p v-if="vone.correct_answer == 1">
-                    <p>正确答案：{{anserShow[kone]}}</p>
-                    <p v-if="anserShow[kone] == v.user_answer" class=" text-green-500" > 正确</p>
-                    <p v-else class=" text-red-600">错误</p>
-                </p>
-            </p>
-            <p>用户答案：{{v.user_answer}}</p>
+            <div v-for="(vone,kone) in v.all_answer" :key="kone">
+                <div v-if="vone.correct_answer == 1">
+                    <div>正确答案：{{anserShow[kone]}}</div>
+                    <div v-if="anserShow[kone] == v.user_answer" class=" text-green-500" > 正确</div>
+                    <div v-else class=" text-red-600">错误</div>
+                </div>
+            </div>
+            <div>用户答案：{{v.user_answer}}</div>
         </div>
     </div>    
 </template>

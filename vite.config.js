@@ -40,6 +40,13 @@ const builds = (url, dir) => {
       open: true,
       host: '0.0.0.0'
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: "modern-compiler" // or 'modern'
+        }
+      }
+    },
     build: {
       outDir: dir,
       terserOptions: {
