@@ -1,6 +1,6 @@
-@import './common.scss';
-@import './themes.scss';
-@import './mixin.scss';
+@use './common.scss' as *;
+@use './themes.scss' as t;
+@use './mixin.scss' as m;
 #app {
   width: 100%;
   height: 100%;
@@ -15,7 +15,7 @@
 .el-logo {
   display: flex;
   align-items: center;
-  height: $headerHeight;
+  height: t.$headerHeight;
   padding: 10px 4px 10px 16px;
   img {
     width: 32px;
@@ -26,7 +26,7 @@
     font-size: 16px;
     font-weight: 700;
     margin-left: 8px;
-    @include ellipsis;
+    @include m.ellipsis;
     &.is-hide {
       display: none;
     }
@@ -34,21 +34,21 @@
 }
 .el-menu {
   height: inherit;
-  background-color: $sidebarTheme;
+  background-color: t.$sidebarTheme;
   border-right: none;
   &.no-transition {
     transition: none;
   }
   .el-menu-item {
-    color: $sidebarColor;
+    color: t.$sidebarColor;
     padding-right: 0;
-    @include ellipsis;
+    @include m.ellipsis;
     &:hover {
       background-color: inherit;
     }
     &.is-active {
       color: #ffffff;
-      background-color: $systemTheme;
+      background-color: t.$systemTheme;
     }
   }
   .el-sub-menu {
@@ -62,37 +62,37 @@
     }
   }
   .el-menu-item-group {
-    background-color: $sidebarThemeGroup;
+    background-color: t.$sidebarThemeGroup;
   }
   .el-sub-menu__title {
-    color: $sidebarColor;
+    color: t.$sidebarColor;
     &:hover {
       background-color: inherit;
     }
     & > span {
       display: inline-block;
       max-width: calc(100% - 45px);
-      @include ellipsis;
+      @include m.ellipsis;
     }
   }
 }
 .sidebar--white {
-  $menu-color: $navbarColor;
+  $menu-color: t.$navbarColor;
   .el-menu-item {
     color: $menu-color;
     &:hover {
-      color: $systemTheme;
+      color: t.$systemTheme;
     }
     &.is-active {
-      background-color: $systemThemeActive;
-      color: $systemTheme;
+      background-color: t.$systemThemeActive;
+      color: t.$systemTheme;
     }
   }
   &:not(.layout-type-3) {
     .el-menu:not(.el-menu--collapse) {
       .el-menu-item {
         &.is-active {
-          border-right: 3px solid $systemTheme;
+          border-right: 3px solid t.$systemTheme;
         }
       }
     }
@@ -100,7 +100,7 @@
   .el-sub-menu__title {
     color: $menu-color;
     &:hover {
-      color: $systemTheme;
+      color: t.$systemTheme;
       i {
         color: inherit;
       }
@@ -112,7 +112,7 @@
   .el-sub-menu {
     &.is-active {
       & > .el-sub-menu__title {
-        color: $systemTheme;
+        color: t.$systemTheme;
         > i {
           color: inherit;
         }
@@ -132,9 +132,9 @@
   .el-menu-item {
     &.is-active {
       background-color: inherit;
-      box-shadow: 3px 0 0 $systemTheme inset;
+      box-shadow: 3px 0 0 t.$systemTheme inset;
       border-right: 0;
-      color: $systemTheme;
+      color: t.$systemTheme;
       i {
         color: inherit !important;
       }
@@ -143,8 +143,8 @@
   .el-sub-menu {
     &.is-active {
       .el-sub-menu__title {
-        color: $systemTheme;
-        box-shadow: 3px 0 0 $systemTheme inset;
+        color: t.$systemTheme;
+        box-shadow: 3px 0 0 t.$systemTheme inset;
         i {
           color: inherit;
         }
@@ -155,8 +155,8 @@
 
 // ----------header----------
 .el-header {
-  height: $headerHeight;
-  background-color: $navbarTheme;
+  height: t.$headerHeight;
+  background-color: t.$navbarTheme;
   color: #ffffff;
   padding: 0;
   .header-content {
@@ -172,7 +172,7 @@
     justify-content: space-between;
     align-items: center;
     &.has-logo {
-      width: calc(100% - #{$logoWidth});
+      width: calc(100% - #{t.$logoWidth});
     }
   }
   .header-left {
@@ -210,50 +210,50 @@
 }
 .navbar--white {
   .el-header {
-    color: $navbarColor;
+    color: t.$navbarColor;
   }
   .el-breadcrumb {
-    color: $navbarColor;
+    color: t.$navbarColor;
   }
   .header-user {
-    color: $navbarColor;
+    color: t.$navbarColor;
   }
 }
 
 // ----------main----------
 .el-main {
-  background-color: $contentBgColor;
-  padding: $paddingWidth;
+  background-color: t.$contentBgColor;
+  padding: t.$paddingWidth;
 }
 
 .sidebar--white {
   &.layout-type-1 {
     .el-logo {
-      border-bottom: $border;
+      border-bottom: t.$border;
       span {
-        color: $systemTheme;
+        color: t.$systemTheme;
       }
     }
   }
   .el-aside > .el-menu {
-    border-right: $border;
+    border-right: t.$border;
   }
 }
 .navbar--white {
   .header {
-    border-bottom: $border;
+    border-bottom: t.$border;
   }
 }
 
 .layout-type-2 {
   .el-logo {
-    width: $logoWidth;
+    width: t.$logoWidth;
   }
   &.navbar--white {
     .el-logo {
-      border-bottom: $border;
+      border-bottom: t.$border;
       .title {
-        color: $systemTheme;
+        color: t.$systemTheme;
       }
     }
   }
@@ -267,7 +267,7 @@
 .layout-type-3 {
   $_sidebarColor: #ffffffa6;
   .el-logo {
-    width: $logoWidth;
+    width: t.$logoWidth;
     .title {
       color: #ffffff;
       &.is-hide {
@@ -277,9 +277,9 @@
   }
   &.navbar--white {
     .el-logo {
-      border-bottom: $border;
+      border-bottom: t.$border;
       .title {
-        color: $systemTheme;
+        color: t.$systemTheme;
       }
     }
   }
@@ -316,21 +316,21 @@
     background-color: transparent;
     border-bottom: none;
     & > .el-menu {
-      background-color: $navbarColor;
+      background-color: t.$navbarColor;
       .el-sub-menu {
         background-color: inherit;
         &.is-active {
           .el-sub-menu__title {
-            color: $systemTheme !important;
+            color: t.$systemTheme !important;
           }
         }
       }
     }
     & > .el-menu-item,
     & > .el-sub-menu .el-sub-menu__title {
-      height: $headerHeight;
-      line-height: $headerHeight;
-      color: $sidebarColor;
+      height: t.$headerHeight;
+      line-height: t.$headerHeight;
+      color: t.$sidebarColor;
       &:hover {
         color: #ffffff;
         i {
@@ -342,13 +342,13 @@
       border-bottom: none;
       &:hover {
         color: #ffffff;
-        background-color: $sidebarThemeActive;
+        background-color: t.$sidebarThemeActive;
         i {
           color: #ffffff;
         }
       }
       &.is-active {
-        background-color: $sidebarThemeActive;
+        background-color: t.$sidebarThemeActive;
         color: #ffffff;
         i {
           color: #ffffff;
@@ -359,13 +359,13 @@
       &.is-active {
         .el-sub-menu__title {
           color: #ffffff;
-          background-color: $sidebarThemeActive;
+          background-color: t.$sidebarThemeActive;
           border-bottom: none;
         }
       }
       .el-sub-menu__title {
         &:hover {
-          background-color: $sidebarThemeActive;
+          background-color: t.$sidebarThemeActive;
         }
       }
     }
@@ -375,7 +375,7 @@
         color: #ffffff;
       }
       .el-menu-item.is-active {
-        background-color: $systemTheme;
+        background-color: t.$systemTheme;
       }
     }
   }
@@ -383,15 +383,15 @@
     .el-menu--horizontal {
       .el-menu-item {
         &:hover {
-          color: $systemTheme;
+          color: t.$systemTheme;
           background-color: #ffffff;
           i {
             color: inherit;
           }
         }
         &.is-active {
-          color: $systemTheme;
-          border-bottom: 2px solid $systemTheme;
+          color: t.$systemTheme;
+          border-bottom: 2px solid t.$systemTheme;
           background-color: #ffffff;
           i {
             color: inherit;
@@ -399,23 +399,23 @@
         }
       }
       & > .el-menu-item {
-        color: $navbarColor;
+        color: t.$navbarColor;
       }
       & > .el-sub-menu {
         &.is-active {
           .el-sub-menu__title {
-            color: $systemTheme;
+            color: t.$systemTheme;
             background-color: #ffffff;
-            border-bottom: 2px solid $systemTheme;
+            border-bottom: 2px solid t.$systemTheme;
             i {
               color: inherit;
             }
           }
         }
         .el-sub-menu__title {
-          color: $navbarColor;
+          color: t.$navbarColor;
           &:hover {
-            color: $systemTheme;
+            color: t.$systemTheme;
             background-color: #ffffff;
             i {
               color: inherit;
@@ -427,14 +427,14 @@
         background-color: #ffffff;
         .el-menu-item {
           &.is-active {
-            background-color: $systemThemeActive;
+            background-color: t.$systemThemeActive;
             border-bottom: none;
           }
         }
         .el-sub-menu {
           &.is-active {
             .el-sub-menu__title {
-              color: $systemTheme;
+              color: t.$systemTheme;
               i {
                 color: inherit;
               }
@@ -444,7 +444,7 @@
         & > .el-sub-menu {
           .el-sub-menu__title {
             &:hover {
-              color: $systemTheme;
+              color: t.$systemTheme;
               i {
                 color: inherit;
               }
@@ -471,7 +471,7 @@
     .el-menu-item {
       &.is-active {
         span {
-          color: $systemTheme;
+          color: t.$systemTheme;
         }
       }
     }
@@ -483,7 +483,7 @@
       &.is-active {
         & > .el-sub-menu__title {
           span {
-            color: $systemTheme;
+            color: t.$systemTheme;
           }
         }
       }
@@ -501,10 +501,10 @@
       align-items: center;
       padding: 0 !important;
       i {
-        color: $sidebarColor;
+        color: t.$sidebarColor;
       }
       > span {
-        color: $sidebarColor;
+        color: t.$sidebarColor;
         width: 100%;
         height: 30px;
         font-size: 12px;
@@ -520,10 +520,10 @@
       & > .el-menu-item:not(.is-active) > div,
       .el-sub-menu:not(.is-active) .el-sub-menu__title {
         i {
-          color: $navbarColor;
+          color: t.$navbarColor;
         }
         > span {
-          color: $navbarColor;
+          color: t.$navbarColor;
         }
       }
     }
@@ -598,8 +598,8 @@
         border-right: 1px solid #d9d9d9;
       }
       &.is-active {
-        border-color: $systemTheme;
-        background-color: $systemTheme;
+        border-color: t.$systemTheme;
+        background-color: t.$systemTheme;
         color: #ffffff;
       }
     }
@@ -631,13 +631,13 @@
 }
 .night-mode {
   .header {
-    border-bottom: 1px solid $borderColor;
+    border-bottom: 1px solid t.$borderColor;
   }
   .tabs-content {
-    background-color: $navbarTheme;
+    background-color: t.$navbarTheme;
     .el-tabs__item {
-      color: $navbarColor;
-      border-color: $borderColor;
+      color: t.$navbarColor;
+      border-color: t.$borderColor;
     }
   }
 }
@@ -649,8 +649,8 @@
 }
 .el-drawer__header {
   margin-bottom: 0;
-  padding: $paddingWidth !important;
-  border-bottom: $border;
+  padding: t.$paddingWidth !important;
+  border-bottom: t.$border;
   & > span {
     font-size: 16px;
     font-weight: 500;
@@ -660,7 +660,7 @@
   }
 }
 .el-drawer__body {
-  padding: $paddingWidth;
+  padding: t.$paddingWidth;
 }
 
 // ----------sidebar menu background color fix----------

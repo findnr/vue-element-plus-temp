@@ -123,7 +123,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/css/themes.scss";
+@use "@/assets/css/themes.scss" as *;
 $nav-bg-dark: #273352;
 
 .draw-content {
