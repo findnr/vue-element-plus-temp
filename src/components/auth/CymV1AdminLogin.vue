@@ -1,8 +1,8 @@
 <!--
  * @Author: 程英明
  * @Date: 2022-01-18 14:03:01
- * @LastEditTime: 2024-01-03 19:31:22
- * @LastEditors: 程英明
+ * @LastEditTime: 2024-12-15 08:16:22
+ * @LastEditors: findnr
  * @Description: 
  * @FilePath: \vue-element-plus-temp\src\components\auth\CymV1AdminLogin.vue
  * QQ:504875043@qq.com
@@ -12,7 +12,7 @@
         style="background: linear-gradient(to bottom, #337ecc 50%,#337ecc 50%,#efefef 50%,#efefef 100%)">
         <div class="bg-[#fff] rounded-lg shadow-2xl justify-items-center" style="width: 850px; height: 500px">
             <div class="flex h-full justify-center">
-                <div class="h-full w-1/2 pt-14 pl-10 pr-10">
+                <div class="h-full pt-14 pl-10 pr-10">
                     <div class="content-center leading-[50px] w-full mt-10 text-center text-[30px]">后台管理系统</div>
                     <div class="pt-3">
                         <input v-model="forms.name"

@@ -1,8 +1,8 @@
 /*
  * @Author: 程英明
  * @Date: 2021-11-25 09:52:58
- * @LastEditTime: 2024-01-02 21:07:42
- * @LastEditors: 程英明
+ * @LastEditTime: 2024-12-15 08:13:28
+ * @LastEditors: findnr
  * @Description: 
  * @FilePath: \vue-element-plus-temp\vite.config.js
  * QQ:504875043@qq.com
@@ -15,7 +15,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import { svgLoader } from './src/utils/svg-loader.js'
 
 const timestamp = new Date().getTime();
-import { terser } from "rollup-plugin-terser";
+import terser from "@rollup/plugin-terser";
 import cleanup from "rollup-plugin-cleanup"
 import { uglify } from 'rollup-plugin-uglify'
 import viteCompression from 'vite-plugin-compression';
