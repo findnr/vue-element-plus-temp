@@ -7,10 +7,16 @@
  * @FilePath: \vue-element-plus-temp\README.md
  * QQ:504875043@qq.com
 -->
-# 测试地址
+# Vue Element Plus Admin 登录模板
+
+## 项目简介
+本项目提供了一套基于Vue 3和Element Plus的后台管理系统登录模板集合，包含多种风格的登录界面，可根据需求灵活切换。
+
+## 测试地址
 请大家不要更改管理员帐号和密码：帐号：admin 密码：123456 （后台接口github的地址：https://github.com/findnr/thinkphp_api ）
 - 后台测试：https://demo.findbox.icu/#/auth/admin
 - 前台测试：正在开中！！！
+
 # Vue 3 + Vite
 vit+vue3 使用element-plus创建的模板，包含axios ,vue-router4,vuex4,等常用组件，构建一个模板，方便使用开发。只须要 git clone https://github.com/findnr/vue-element-plus-temp.git 。再使用npm install 。就可以进行开发了。文件里面已经构建好了route文件，vuex文件，axios封装的接口等，具体的封装可以看项目的创建流程。
 ```shell

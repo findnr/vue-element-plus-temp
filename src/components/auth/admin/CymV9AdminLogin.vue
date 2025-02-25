@@ -119,8 +119,8 @@
                                 <div class="input-line"></div>
                             </div>
                             <div class="pt-8">
-                                <img :src="code_img.url" alt @click="getNewCode"
-                                    class="h-12 w-full rounded-lg cursor-pointer hover:opacity-80 transition-all border border-blue-500/20" />
+                                <img :src="code_img.url" alt="验证码" @click="getNewCode"
+                                    class="h-12 w-full rounded-lg cursor-pointer hover:opacity-80 transition-all border border-blue-500/20 z-10 relative" />
                             </div>
                         </div>
 

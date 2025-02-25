@@ -18,7 +18,7 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(vue@3.5.13)
       '@vueuse/core':
-        specifier: ^12.3.0
+        specifier: ^12.7.0
         version: 12.7.0
       axios:
         specifier: ^1.7.9
@@ -27,19 +27,19 @@ importers:
         specifier: ^5.6.0
         version: 5.6.0
       element-plus:
-        specifier: ^2.9.2
+        specifier: ^2.9.5
         version: 2.9.5(vue@3.5.13)
       findnrjs:
         specifier: ^1.1.6
         version: 1.1.6
       md-editor-v3:
-        specifier: ^5.1.1
+        specifier: ^5.3.2
         version: 5.3.2(vue@3.5.13)
       pinia:
-        specifier: ^2.3.0
+        specifier: ^2.3.1
         version: 2.3.1(vue@3.5.13)
       qs:
-        specifier: ^6.13.1
+        specifier: ^6.14.0
         version: 6.14.0
       vue:
         specifier: ^3.5.13
@@ -51,10 +51,10 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0(vue@3.5.13)
       vxe-table:
-        specifier: ^4.10.2
+        specifier: ^4.11.11
         version: 4.11.11(vue@3.5.13)
       xe-utils:
-        specifier: ^3.7.0
+        specifier: ^3.7.2
         version: 3.7.2
       xlsx:
         specifier: ^0.18.5
@@ -76,7 +76,7 @@ importers:
         specifier: ^0.12.7
         version: 0.12.7
       postcss:
-        specifier: ^8.4.49
+        specifier: ^8.5.3
         version: 8.5.3
       rollup-plugin-cleanup:
         specifier: ^3.2.1
@@ -85,10 +85,10 @@ importers:
         specifier: ^6.0.4
         version: 6.0.4
       sass:
-        specifier: ^1.83.1
+        specifier: ^1.85.1
         version: 1.85.1
       sass-loader:
-        specifier: ^16.0.4
+        specifier: ^16.0.5
         version: 16.0.5(sass@1.85.1)
       tailwindcss:
         specifier: ^3.4.17
@@ -97,7 +97,7 @@ importers:
         specifier: ^0.19.0
         version: 0.19.0(@vueuse/core@12.7.0)
       vite:
-        specifier: ^6.0.7
+        specifier: ^6.2.0
         version: 6.2.0(jiti@1.21.7)(sass@1.85.1)(terser@5.39.0)(yaml@2.7.0)
       vite-plugin-compression:
         specifier: ^0.5.1
