@@ -8,7 +8,7 @@
  * QQ:504875043@qq.com
 -->
 # Vue Element Plus Admin 登录模板
-## 项目已经开始使用deepseek,openai,claude,gemini,grok3等相关在模型写，使用的编辑器是trar接入openai,claude,并且是免费使用，真的好高效，只提供思想，写代码超快。
+## 项目已经开始使用deepseek,openai,claude,gemini,grok3等相关在模型写，使用的编辑器是trae接入openai,claude,并且是免费使用，真的好高效，只提供思想，写代码超快。
 ## 项目简介
 本项目提供了一套基于Vue 3和Element Plus的后台管理系统登录模板集合，包含多种风格的登录界面，可根据需求灵活切换。
 
