@@ -27,7 +27,7 @@
             <div class="relative flex h-full justify-center z-10">
                 <div class="w-[400px] pt-14 px-10">
                     <div class="mb-8 text-center">
-                        <h1 class="text-3xl font-bold text-white mb-2">后台管理系统</h1>
+                        <h1 class="text-3xl font-bold text-white mb-2">后台管理系统=</h1>
                         <div class="flex justify-center space-x-2">
                             <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
                             <div class="w-2 h-2 bg-blue-300 rounded-full animate-pulse delay-100"></div>
