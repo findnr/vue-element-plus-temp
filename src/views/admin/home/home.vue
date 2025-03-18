@@ -7,6 +7,9 @@
  * @FilePath: \vue-element-plus-temp\src\views\admin\home\home.vue
 -->
 <template>
+  <div class="index" style="height: 500px;">
+    <CymQuillEditor></CymQuillEditor>
+  </div>
   <PageNum :total="1000"></PageNum>
   <OneTime ></OneTime>
   <div class="index">
@@ -20,9 +23,7 @@
   <div class="json">
     <XlsxToJson  @getJson="getJson"></XlsxToJson>
   </div><br />
-  <div class="index">
-    <CymQuillEditor></CymQuillEditor>
-  </div>
+  
   
 </template>
 
